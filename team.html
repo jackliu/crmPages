@@ -1,0 +1,1408 @@
+
+  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" class='layout'>
+<head>
+	<script type="text/javascript">window.optimizely_logged_in=true;</script>
+	<script type="text/javascript">window.optimizely_is_free=true;</script>
+	<script src="//cdn.optimizely.com/js/10955010.js"></script>	
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-Ua-Compatible" content="IE=edge" />
+	<meta name="keywords" content="悦成,刘立立,CRM,iPhone,Android,咨询,备注,客户来源,客户查询" />
+<meta name="description" content="本系统是由刘立立，为上海悦成移动开发的销售 CRM 系统，为销售人员提供各种销售信息的纪录和查询功能." />
+
+	<title>CRM 销售管理系统 | 悦成</title>
+	
+
+<link rel="stylesheet" type="text/css" media="screen" href="css/editor/jquery.ui.base.css?v=6.7.3.6" />
+<link rel="stylesheet" type="text/css" media="screen" href="css/fancybox/jquery.fancybox-1.3.1.css?v=6.7.3.6" />
+<link rel="stylesheet" type="text/css" media="screen" href="css/main.css?v=6.7.3.6" />
+<link rel="stylesheet" type="text/css" media="screen" href="css/jquery.multiselect.css?v=6.7.3.6" />
+
+<script type="text/javascript" src="js/default.js?v=6.7.3.6"></script>
+<script type="text/javascript" src="js/jquery.multiselect.js?v=6.7.3.6"></script>
+	
+	<link rel="stylesheet" type="text/css" media="screen"" href="css/hs/main.css?c=6.7.3.6" />
+	<script type="text/javascript" src="js/hs/main.js?c=6.7.3.6" ></script>
+	
+<!--
+	<link rel="shortcut icon"" href="/favicon.ico?c=6.7.3.6" />    
+	<link rel="apple-touch-icon"" href="/images/icons/hf/apple-touch-icon-precomposed.png?c=6.7.3.6" />	
+	<link id="chrome-webstore-item" rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/bocmleclimfnadgmcdgecijlblfcmfnm">
+	-->
+	
+					<script type="text/javascript">
+					var _gaq = _gaq || [];
+					_gaq.push(['_setAccount', 'UA-15982871-1']);
+					_gaq.push(['_trackPageview', window.location.href.replace(/\?.*$/, '')]);
+					
+					(function() {
+					  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+					  ga.src = ('https:' == window.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+					  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+					})();
+				</script>					<script type="text/javascript">
+				  var _kmq = _kmq || [];
+				  function _kms(u){
+				    setTimeout(function(){
+				      var s = document.createElement('script'); var f = document.getElementsByTagName('script')[0]; s.type = 'text/javascript'; s.async = true;
+				      s.src = u; f.parentNode.insertBefore(s, f);
+				    }, 1);
+				  }
+				  _kms('//i.kissmetrics.com/i.js');_kms('//doug1izaerwt3.cloudfront.net/a1f3cc3528083091a47e9df4be1d9442241f1996.1.js');
+				  
+				</script>	<script type='text/javascript'>
+$(document).ready(function(){
+
+	// This is to fix an issue on chrome related to background images not loading.
+	// We manually force all of them to load by resetting the background attribute to its own value.
+	// Not sure why this is even happening but this fixes it....
+
+	var ua = navigator.userAgent.toLowerCase();
+	var isChrome = /chrome/.test(ua);
+	var isSafari = !isChrome && /safari/.test(ua);
+	
+	if (isChrome || isSafari) {
+
+		var isWindows = /windows/.test(ua);
+		if (isChrome && isWindows) {
+			// For font fixes on chrome on windows
+			$('body').addClass('chrome-win-fix');
+		}
+		else if (isWindows) {
+			$('body').addClass('win');
+		}
+		
+		// Special case for the html tag
+		var html = $('html');
+		var b = html.css('background-image'); 
+		if (b && b != "none") {
+			html.attr('style', 'background-image: ' + b + ' !important;');
+		}
+		
+		var selectors = [
+			'li.nav_send a', 
+			'li.nav_request a', 
+			'li.nav_manage a', 
+			'li.nav_office a', 
+			'li.nav_create_template a', 
+			'li.nav_getting_started a', 
+			'#sitenav li .icon',
+			'.btn.r', 
+			'.btn.l', 
+			'.btn.c',
+			'.doc-actions .arrow',
+			'.team_list .arrow',
+			'#header h1 a'
+		];
+		$(selectors.join(", "))
+			.each(function(i, v) {
+				var el = $(v);
+				el.css('background', el.css('background'));
+			});
+	}
+	else if (/msie/.test(ua)) {
+		var version = (/msie 10/.test(ua) ? 10 : (/msie 9/.test(ua) ? 9 : (/msie 8/.test(ua) ? 8 : (/msie 7/.test(ua) ? 7 : undefined))));
+		if (version) {
+			$('body').addClass('ie' + version);
+		}
+	}
+	
+});
+</script>	
+</head>
+<body class="layout loggedin team-page" id="hs">
+
+<div id='topbar'>
+	<span class='link'>
+				HelloFax
+			</span>
+	<span class='link'>
+				<a href='/home/bridge/to/S' id='linkToHS' target='_blank'>HelloSign</a>
+			</span>
+	<span class='link'>
+		<span style='font-weight:normal;'>HelloSign for</span>
+		<a href='/home/bridge/to/G' target='_blank'>Gmail</a>
+		<span class='sep'>|</span>
+		<a href='/home/bridge/to/M' target='_blank'>iOS</a>
+		<span class='sep'>|</span>
+		<a href='/home/bridge/to/A' target='_blank'>Android</a>
+		</span>
+</div>
+
+
+<script type='text/javascript'>
+$(document).ready(function() {
+
+	var options = { 
+			autoDimensions: true,
+			onComplete: function(){ $('#fancybox-outer').addClass('with-border'); },
+			scrolling: 'no' 
+	};
+	
+
+	$('#linkToHS').click(function(event){
+		hellofaxJS.openFancyBoxPopup('/home/crossoverPopup?to=S', options);
+		event.preventDefault();
+	});
+
+});
+</script>
+
+
+<!-- display new features -->
+<div style='display:none;'>
+		<input id='feature_group' type='hidden' value='0' />
+	<input id='feature_count' type='hidden' value='0' />
+	<div id='new_feature_popup' style='margin:5px;'>
+		<div class='new_feature_popup_container'>
+			<h1 class='new_feature_popup_title'>Since you've been gone</h1>
+			<div class='new_feature_popup_header'>We added new features since your last visit!</div>
+						<div class='new_feature_popup_bottom'>
+								<a href='http://blog.hellofax.com/category/new-features/' target='_blank'>See all</a>
+				 
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="container">
+
+	<div id="left_bar">
+	
+		<div id="header">
+			<a tabindex="-1" class="logo" href="/">/</a>		</div>
+
+		<div id="sitenav">
+			<ul>
+								<li class="nav_send ">
+					<span class='icon'></span><a href="/fax">Send a fax</a>					<b class="r tr"></b
+					><b class="r br"></b>
+				</li>
+										<li class="nav_upgrade ">
+							<span class='icon'></span><a href="/home/upgrade">Receive faxes</a>							<b class="r tr"></b>
+							<b class="r br"></b>
+						</li>
+								<li class="nav_request ">
+					<span class='icon'></span><a href="/home/request">Sign documents</a>					<b class="r tr"></b>
+					<b class="r br"></b>
+				</li>
+								<div class="hr"></div>
+				<li class="nav_manage ">
+					<span class='icon'></span><a href="/home/manage">Documents</a>					<b class="r tr"></b>
+					<b class="r br"></b>
+				</li>
+				<li class="nav_office team-nav-item cur">
+					<span class='icon'></span><a href="/home/team">Team</a>					<b class="r tr"></b>
+					<b class="r br"></b>
+				</li>
+				<div class="hr"></div>
+				<li class="nav_getting_started ">
+					<span class='icon'></span><a href="/account/gettingStarted">Getting started</a>					<b class="r tr"></b>
+					<b class="r br"></b>
+				</li>
+				<div class="hr"></div>
+				<li class="nav_account ">
+					<span class='icon'></span><a href="/home/myAccount">Settings</a>					<b class="r tr"></b>
+					<b class="r br"></b>
+				</li>
+			</ul>
+			<div class="clearfix"></div>
+		</div>
+		
+		<div id="invite" class="sidebar-item sidebar-item-with-btn ">
+		
+			<div class="subitem signature" guid="">
+				<p>Your signature (<a href="#" id="editSignatureLink">edit</a>)</p>
+							</div>
+			
+			<div class="subitem signature-cta">
+				<a id="addSignatureLink" href="#">Add a signature</a>
+			</div>
+		
+			<div class="subitem">
+				<p>Invite a friend and you'll both get 5 free pages</p>
+				<a href="/home/inviteFriends" id="invite_friends_link" class="btn-replacement invite_friends_link">Invite a Friend</a>
+			</div>
+
+			<div class="subitem">
+				<p>Need to receive faxes?</p>
+<a class="btn-replacement" href="/info/pricing">Get a fax number today</a>			</div>
+			
+			<div class="subitem last">
+				<a style="font-size: 13px; margin: 0px 0px 10px 0px; display: block;" href="/account/gettingStarted">Earn bonus pages</a>				<a class="progress-bar-container" href="/account/gettingStarted">
+					<h4>Progress <span id="progress-text"></span></h4>
+					<div class="progress-bar" id="progress-bar"></div>
+				</a>
+			</div>
+		</div>
+
+		<!--subitems js-->
+				<script type="text/javascript">
+			// Load the FB SDK Asynchronously
+			(function(d){
+				var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
+				js = d.createElement('script'); js.id = id; js.async = true;
+				js.src = "//connect.facebook.net/en_US/all.js";
+				d.getElementsByTagName('head')[0].appendChild(js);
+			}(document));
+
+			window.fbAsyncInit = function() {
+				FB.init({
+					appId      : '347878078557217', // App ID
+					channelUrl : '//hellofax.com/channel.html', // Channel File
+					status     : true, // check login status
+					cookie     : true, // enable cookies to allow the server to access the session
+					xfbml      : true  // parse XFBML
+				});
+
+				$(function() {
+					if (window.facebookInitCallback) {
+						window.facebookInitCallback();
+					}	
+				});
+			};
+		</script>
+						<script type="text/javascript">
+			
+			//update progress bar
+			var progressbar = $("#progress-bar");
+			var progresstext =  $("#progress-text");
+			var completeness = {
+				'percent': 17,
+				'total': 30,
+				'complete': 5			};
+			
+			if (completeness['percent'] >= 100) {
+				progressbar.addClass('complete');
+				completeness['percent'] = 100;
+			} else {
+				progressbar.removeClass('complete');
+			}
+
+			progressbar.animate({'width': completeness['percent'] + '%'});
+			progresstext.html(completeness['percent'] + '%');
+		</script>		
+	</div>
+	
+	
+	<div id="right_expand">
+		<div id="greet" class="large">
+			<ul class="greet-nav">
+				<li id="nav-credits" class="nav-credits">
+					<a href="#" onclick="void(0); return false;">liu20011122@163.com</a>					
+					<div id="credits-arrow" class="arrow">
+						<ul>
+							<span></span>
+							<li><span class="credits-header">Fax pages remaining</span></li>
+							<li class="credit-row credit-seperator"><strong>10</strong> fax pages</li>
+							<li><a href="/info/pricing">Upgrade</a></li>
+							<li class="nav-myaccount"><a href="/home/myAccount">Account settings</a></li>			
+							<li class="nav-logout"><a href="/account/logOut">Log out</a></li>
+							</ul>
+					</div>
+				</li>
+				<li id="upgrade_btn"><div class="btn-red">Upgrade</div></li>
+			</ul>
+		</div>
+		<div id="content" class="border-box">
+		<h1><span id='team_name'>Untitled Team</span>
+			<a href="#edit_team_name" id="edit_team_name_link">Edit Name</a></h1>
+		<div id="error_edit_name" style="display:none;color:#ff0000;font-size:10px;">
+			<strong>An error occurred when changing the team name. Please contact HelloFax support.</strong>
+		</div>
+
+
+
+	<!-- 左边 -->
+	<div class="team-accounts-column">
+
+		<form class="add_team_member">
+		<input type="text" name="new_member_email_address" id="new_member_email_address" class="email required new_member_email_address" />
+		<a href="#" id="add_team_member_submit" class="add_team_member_submit blue-sub">Invite People Free <img src="//s3.amazonaws.com/cdn.hellofax.com/images/editor/throbber.gif?c=6.7.3.6" /></a> 
+	</form>
+	<div id="error_container"></div>
+	
+	<div id="team_list_container" class="">
+		<table class="team_list" cellpadding="0" cellspacing="0">
+					<tr email_addr="liu20011122@126.com" class='team_invite'>
+						<td class="email_col"><span class="value">liu20011122@126.com</span></td>
+						<td class="role_col">(Pending)</td>
+						<td class="action_col padded">
+							<img src="//s3.amazonaws.com/cdn.hellofax.com/images/delete-dark.png?c=6.7.3.6" title="Remove" alt="Remove" class="delete_team_invite_link" />
+						</td>
+					</tr>
+				<tr email_addr="liu20011122@163.com" class='team_member'>
+					<td class="email_col admin"><span class="value">liu20011122@163.com</span></td>
+					<td class="role_col">Admin</td>
+					<td class="action_col padded">
+										</td>
+				</tr>
+					</table>
+	</div>
+		
+</div>
+
+	<!-- 右侧 -->
+	<div class='about-teams no-top-margin team-secondary-column '>
+	
+		<div class="video">
+			<iframe src="//player.vimeo.com/video/61327671" width="239" height="134" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+		</div>
+	
+		<h2>About Teams</h2> 		<ul>
+			<li>
+				<span class='title'>Get the whole office to go paperless</span>
+				<span>We let you avoid the &quot;print, sign and scan&quot; problem by signing documents in the browser.</span>
+			</li>
+			<li>
+				<span class='title'>Share common company documents</span>
+				<span>Give team members access to company NDAs, consulting contracts, government forms and other documents.</span>
+			</li>
+			<li>
+				<span class='title'>Collaborate on signatures</span>
+				<span>Get everyone in the approval process on the team; purchasing, legal, accounting and management. Make sure everyone is in the loop.</span>
+			</li>
+					<li>
+				<span class='title'>Need multiple fax numbers?</span>
+				<span>Upgrade now to a <a href="/info/pricing">paid plan</a>. You can add extra fax lines and configure multiple recipients per fax line.</span>
+			</li>
+				</ul>
+	</div>
+
+
+<div id='infoBubble'>
+	<span class='arrow'></span>
+	<span class='content'></span>
+</div>
+
+
+<script type="text/javascript">
+
+//Upgrade a team member
+function upgradeTeamMember(e, el) {
+	e.preventDefault();
+	var guid = null;
+	if (el === undefined || el === null) {
+		guid = $(this).attr('acct_guid');
+	} 
+	else {
+		guid = $(el).attr('acct_guid');
+	}
+	var url = "/account/upgradeTeamMember?acct_guid=" + guid;
+	hellofaxJS.openFancyBoxPopup(url);
+}
+
+// Downgrade a team member
+function downgradeTeamMember(e, el) {
+	e.preventDefault();
+
+	if ($('.team_list tr').length <= 1) {
+		window.location = '/account/cancelSubscription';
+		return;
+	}
+	
+	var guid = null;
+	if (el === undefined || el === null) {
+		guid = $(this).attr('acct_guid');
+	} 
+	else {
+		guid = $(el).attr('acct_guid');
+	}
+	var url = "/account/downgradeTeamMember?acct_guid=" + guid;
+	hellofaxJS.openFancyBoxPopup(url);
+}
+
+$(document).ready(function(){
+
+	var is_hf = true;
+	var infoBubble = $('#infoBubble');
+	var input_default_text = 'Enter email address';
+	var no_team_members_msg = "<div class='no_team_message'><p>No team members yet.</p>Invite someone to join!</div>";
+	var isAdmin = true;
+	var hasTeam = true;
+	var isPaidTeam = false;
+
+	
+	
+	
+	// Info Bubbles
+	function bindDetails() {
+		$('.details')
+			.mouseenter(function(e){
+				var el = $(this);
+				var loc = $(this).attr('data-loc');
+				var descr = $(this).attr('data-content');
+				var pos = el.position();
+				var content = $('.content', infoBubble);
+				var yOffset = $('form.add_team_member').length > 0 ? 0 : -56;
+	
+				content.html(descr);
+	
+				// Render out of screen
+				infoBubble
+					.css('top', '-10000px')
+					.show();
+				var topOffset, leftOffset = 0;
+				if(loc == 'table')
+				{
+					topOffset = 127;
+					leftOffset = 68;
+				} else {
+					topOffset = 107;
+					leftOffset = 322;
+				}
+	
+				// Adjust position
+				infoBubble
+					.css({
+						'top': (pos.top + topOffset + yOffset) + 'px',
+						'left': (pos.left + el.width() + leftOffset) + 'px'
+					});
+
+			})
+			.mouseleave(function(e){
+				infoBubble
+					.removeClass('large')
+					.hide();
+			});
+	}
+
+	bindDetails();
+
+	// Show template access popup
+	function showTemplateAccess() {
+		var el = $(this);
+		var acct_guid = el.attr('acct_guid');
+		var url = '/home/viewTemplatePermissionsForAccount?guid=' + acct_guid;
+		hellofaxJS.openFancyBoxPopup(url, {
+			'width' : 500,
+			'height': 500
+		});
+	}
+	
+	var error_team_name = $('#error_edit_name');
+	
+	function updateTeamName() {
+
+		if (isAdmin) {
+			error_team_name.html("Your admin access has been removed by another admin on your team. Please speak with them to restore access.");	
+		} 
+		else {			
+			error_team_name.html("An internal error occurred when changing the team name. Please contact HelloFax support.");
+		}
+		
+		error_team_name.hide();
+		var teamName = $('#edit_team_name_text').val();
+		if (!teamName) {
+			error_team_name.html("You must enter a name.");
+			error_team_name.fadeIn();
+			return;
+		}
+		var params = { team_name: teamName };
+		
+		$.ajax({
+	        type: 'POST',
+	        async: false,
+	        url: '/account/editTeamName',
+	        data: params,
+	        dataType: 'json',
+	        success: function(data) {
+	        	$('#team_name').text(teamName);
+	        	$('span.displayTeamName').text(teamName);
+	        },
+			error: function(req) {
+	        	error_team_name.fadeIn();
+	        	setTimeout(function(){ error_team_name.fadeOut('slow'); }, 7500);
+			}
+		});
+		
+		if ($("#edit_team_name").hasClass('is_creating')) {
+			$("#edit_team_name").addClass('is_creating');
+			
+			window.location.reload(true);
+		}
+		
+		$.fancybox.close();
+	}
+	
+	$("#edit_team_name_link").click(function() {
+		$("#edit_team_name").removeClass('is_creating');
+	}).fancybox({
+		'scrolling': 'no',
+		'width': 484,
+		'height': 400	
+	});
+
+	$(".create-team-button").click(function() {
+		$("#edit_team_name_link").click();
+		$("#edit_team_name").addClass('is_creating');
+	})
+
+	$('#cancel_team_name_edits').click(function() {
+		$('#edit_team_name_text').val('');			
+		$.fancybox.close();
+
+		//remove is_creating status after close
+		setTimeout(function() {
+			$("#edit_team_name").removeClass('is_creating');
+		}, 500);
+		
+	});
+	$('#save_team_name_edits').click(updateTeamName);
+	$('#edit_team_name_form').submit(function(event) { 
+		updateTeamName.call(this);
+		event.preventDefault();
+	});
+	
+	// Input field management
+	
+	$('#new_member_email_address')
+		.val(input_default_text)
+		.addClass('no_focus')
+		.removeClass('focus')
+		.focus(function(){
+			var el = $(this);
+			if ($.trim(el.val()) == input_default_text) {
+				el.val('')
+				  .removeClass('no_focus')
+				  .addClass('focus');
+			}
+		})
+		.blur(function(){
+			var el = $(this);
+			var v = $.trim(el.val());
+			if (!v) {
+				el.val(input_default_text)
+				  .addClass('no_focus')
+				  .removeClass('focus');
+			}
+			if (!v) {
+				$('#error_container .error').remove();
+			}
+		});
+
+	// Team id management
+	function getTeamId() { return $('body').data('team_id'); }
+	function setTeamId(id) { $('body').data('team_id', id); }
+	setTeamId(16458);
+	
+	//promote a team member
+	function promoteMemberToAdmin(e) {
+		var el = $(this);
+		var row = el.closest('tr');
+		var promoteMemberEmail = row.attr('email_addr');
+		var is_promote_member = el.hasClass("promote_team_member_link");
+
+		$.ajax({
+	        type: 'POST',
+	        url: '/account/promoteMemberToAdmin',
+	        data: { 
+		        'team_member_email' : promoteMemberEmail, 
+		        'team_id' : getTeamId()},
+	        dataType: 'json',
+	        success: function(data) {
+	        	if (data.length > 0 && data[0].success == 'success') {
+	        		if(is_hf) {
+	    				row.find("td.role_col").html(data[0].new_role);
+		        	} else {
+						if(data[0].is_free) {
+							row.find("td.role_col").html("Free - Admin");
+						} else {
+							row.find("td.role_col").html("Business - Admin");
+						}
+		        	}
+	        	}
+	        	row.find('li.menuLink.promote').hide();
+	        	row.find('li.menuLink.demote').show();
+	        },
+	        error: function(req) {
+	        	alert("There was an error promoting this user. Please contact support.");
+	        }
+		});
+	} 
+	
+	//demote an admin to team member	
+	function demoteAdminToMember(e) {
+		var el = $(this);
+		var row = el.closest('tr');
+		var demoteMemberEmail = row.attr('email_addr');
+		var is_promote_member = el.hasClass("demote_team_member_link");
+		var is_me = el.attr('isme') == 1;
+
+		$.ajax({
+	        type: 'POST',
+	        url: '/account/demoteAdminToMember',
+	        data: { 
+		        'team_member_email' : demoteMemberEmail, 
+		        'team_id' : getTeamId()},
+	        dataType: 'json',
+	        success: function(data) {
+	        	if (data.length > 0 && data[0].success == 'success') {
+
+		        	if(is_hf) {
+	    				row.find("td.role_col").html(data[0].new_role);
+		        	} else {
+						if(data[0].is_free) {
+							row.find("td.role_col").html("Free");
+						} else {
+							row.find("td.role_col").html("Business");
+						}
+		        	}
+	        	}
+	        	row.find('li.menuLink.promote').show();
+	        	row.find('li.menuLink.demote').hide();
+
+	        	//if the admin we just removed was the current user then reload this page
+	        	if (is_me) {
+	        		window.location.reload(true);
+	        	}
+	        },
+	        error: function(req) {
+        		var paid_text = isPaidTeam && !is_hf;
+
+        		html = "<div style='padding:20px;' class='border-box'>";
+        		html += '<h2 class="page-title">At least one' + (paid_text? ' paid' : '') + ' admin is required</h2>';
+        		html += '<p style="padding:5px 0px;font-size:14px;">Promote another member to ' + (paid_text? "a paid admin" : "an admin") + ' first.</p>';
+        		html += '</div>';
+
+        		$.fancybox({
+        			'content': html
+        		});
+	        }
+		});
+	} 
+	
+	// Remove a team member
+	function removeFromTeam(e) {
+		
+		var el = $(this)
+		var row = el.closest('tr');
+		var removeMemberEmail = row.attr('email_addr');
+		var is_remove_member = el.hasClass("delete_team_member_link"); 
+
+		var confirmMsg = is_remove_member ? "Are you sure you want to remove this user from your team? Note: this account will still exist. However, it will no longer be part of your team." : "Are you sure you want to delete this invitation?";
+		if (confirm(confirmMsg)) {
+
+			row
+			.find('.action_col')
+				.find('.arrow, img')
+					.hide()
+				.end()
+				.append('<img class="spinner" src="//s3.amazonaws.com/cdn.hellofax.com/images/loading-spinner-16.gif?c=6.7.3.6" width="16" height="16" />');
+
+			function failure() {
+				row
+				.find('.action_col')
+					.find('img.spinner')
+						.remove()
+					.end()
+					.find('.arrow, img')
+						.show();
+			}
+			
+			$.ajax({
+		        type: 'POST',
+		        url: '/account/removeTeamMember',
+		        data: { 
+			        'team_member_email' : removeMemberEmail, 
+			        'team_id' : getTeamId(), 
+			        'is_invite': is_remove_member ? 0 : 1 },
+		        dataType: 'json',
+		        success: function(data) {
+		        	if ('success' in data && data.success == 'success') {
+
+			        	if ('msg' in data) {
+							//handled problem
+							var html = "<div style='padding:20px;' class='border-box'>";
+        					html += '<p style="padding:5px 0px;font-size:14px;">' + data.msg + '</p>';
+        					html += '</div>'; 
+			        		$.fancybox({
+			        			'content': html
+			        		});
+			        		failure();
+			        	} else {
+				        	// Update the list of members
+			    			var table = $('#team_list_container table');
+			    			if (table.find('tr').length == 1) { 
+			    				// Replace by "empty team" message
+			    				var container = table.parent();
+			    				table.fadeOut('slow', function(){
+			    					table.remove();
+			    					container
+			    						.addClass('empty')
+			    						.append(no_team_members_msg);
+		    						$('.fax_line_config_column').hide();
+			    				});
+			    			}
+			    			else {
+			    				// Slowly remove entry
+			    				row.fadeOut('slow', function() {
+			    					row.remove();
+			    				});				
+			    			}
+	
+							// Update fax line select menus
+							$('select.fax_line_select').each(function(i, el){
+								$(el)
+									.find('option')
+										.each(function(j, v){
+											var opt_el = $(v);
+											if (opt_el.html() == removeMemberEmail) {
+												opt_el.remove();
+											}
+										})
+									.end()
+									.multiselect('refresh');
+									
+							});
+			        	}
+		    			
+		        	}
+		        	else {
+		        		failure();
+		        	}
+		        },
+		        error: function(req) {
+		        	failure();
+		        }
+			});
+
+		}
+	}
+
+	$('.delete_team_member_link, .delete_team_invite_link').live("click", removeFromTeam);
+	$('.promote_team_member_link').live("click", promoteMemberToAdmin);
+	$('.demote_team_member_link').live("click", demoteAdminToMember);
+	$('.upgrade_team_member_link').live("click", upgradeTeamMember);
+	$('.downgrade_team_member_link').live("click", downgradeTeamMember);
+
+	function addNewTeamMemberRow(data, no_fancybox) {
+		
+		var status_text = '';
+		var fancybox_id = '';
+		var delete_link_class = '';
+		var row_class = '';
+		var pending_acceptance = data.pending_acceptance;
+		var pending_email_confirmation = data.pending_email_confirmation;
+
+		if (pending_acceptance) {
+			status_text = '(Pending)';
+			fancybox_id = 'existingAccountFancybox';
+			delete_link_class = 'delete_team_invite_link';
+			row_class = 'team_invite';
+			if (data.warning !== undefined && no_fancybox !== true) {
+				$('#' + fancybox_id + ' p.warning').html(data.warning); 
+			}
+			
+		} 
+		else if (pending_email_confirmation) {
+			status_text = '(Pending)';
+			fancybox_id = 'pendingEmailConfirmationFancybox';
+			delete_link_class = 'delete_team_invite_link';
+			row_class = 'team_invite';
+		} 
+		else {
+			status_text = 'Member';
+			fancybox_id = 'newAccountFancybox';
+			delete_link_class = 'delete_team_member_link';
+			row_class = 'team_member';
+			$('#fb_upgrade_link').attr('acct_guid', data.acct_guid);
+		}
+
+		$('.no_team_message').hide();	
+
+		var team_list_container = $('#team_list_container');
+
+		if (team_list_container.find('table').length == 0) {
+			// This is the first member
+			if (!hasTeam) {
+				// Became admin defacto by adding the first member
+				isAdmin = true;
+			}
+			hasTeam = true;
+			team_list_container
+				.find('div')
+					.remove()
+				.end()
+				.removeClass('empty')
+				.append($('<table></table>')
+							.addClass('team_list')
+							.attr('cellpadding', 0)
+							.attr('cellspacing', 0)
+							.append($('<tbody></tbody>')));
+			if (is_hf && isAdmin && isPaidTeam) {
+				$('.fax_line_config_column').fadeIn('slow');
+			}
+			if (data.team_id) {
+				setTeamId(data.team_id);
+			}
+		}
+		
+		if (!no_fancybox) {
+			$('.member_email', '#' + fancybox_id).html(data.acct_email);
+		}
+
+		if ($('tr[email_addr="' + data.acct_email + '"]').size() === 0) {
+			var actions = '';
+			if (isAdmin || !hasTeam) { // No actions available for non-admins even when they can add new members
+				if (data.acct_guid) {
+					if (is_hf) {
+						actions += '<div class="arrow">' + 
+									'	<ul>' +
+									'		<span></span>' +
+									'		<li class="menuLink promote" style="' + (data.is_admin ? "display:none" : "") + '">' +
+									'			<a href="#" class="promote_team_member_link" acct_guid="' + data.acct_guid + '" onclick="void(0); return false;"><b class="ico"></b>Make admin</a>' +
+									'		</li>' +
+									'		<li class="menuLink demote"  style="' + (!data.is_admin ? "display:none" : "") + '">' +
+									'			<a href="#" class="demote_team_member_link" acct_guid="' + data.acct_guid + '" onclick="void(0); return false;"><b class="ico"></b>Revoke admin</a>' +
+									'		</li>' +
+									'		<li class="menuLink delete">' +
+									'			<a href="#" class="delete_team_member_link" onclick="void(0); return false;"><b class="ico"></b>Delete</a>' +
+									'		</li>' +
+									'	</ul>' +
+									'</div>';
+					} 
+					else {
+						actions += '<div class="arrow">' + 
+						'	<ul>' +
+						'		<span></span>' +
+						'		<li class="menuLink upgrade" style="' + (!data.is_free ? "display:none" : "") + '">' +
+						'			<a href="#" class="upgrade_team_member_link" acct_guid="' + data.acct_guid + '" onclick="void(0); return false;"><b class="ico"></b>Upgrade</a>' +
+						'		</li>' +
+						'		<li class="menuLink template_access">' +
+						'			<a href="#" class="show_template_access_link" acct_guid="' + data.acct_guid + '" onclick="void(0); return false;"><b class="ico"></b>Templates</a>' +
+						'		</li>' +
+						'		<li class="menuLink promote" style="' + (data.is_admin ? "display:none" : "") + '">' +
+						'			<a href="#" class="promote_team_member_link" acct_guid="' + data.acct_guid + '" onclick="void(0); return false;"><b class="ico"></b>Make admin</a>' +
+						'		</li>' +
+						'		<li class="menuLink demote" style="' + (!data.is_admin ? "display:none" : "") + '">' +
+						'			<a href="#" class="demote_team_member_link" acct_guid="' + data.acct_guid + '" onclick="void(0); return false;"><b class="ico"></b>Revoke admin</a>' +
+						'		</li>' +
+						'		<li class="menuLink downgrade" style="' + (data.is_free ? "display:none" : "") + '">' +
+						'			<a href="#" class="downgrade_team_member_link" acct_guid="' + data.acct_guid + '" onclick="void(0); return false;"><b class="ico"></b>Downgrade</a>' +
+						'		</li>' +
+						'		<li class="menuLink delete">' +
+						'			<a href="#" class="delete_team_member_link" onclick="void(0); return false;"><b class="ico"></b>Delete</a>' +
+						'	</ul>' +
+						'</div>';
+					}
+				}
+				else {
+					actions += '<img src="//s3.amazonaws.com/cdn.hellofax.com/images/delete-dark.png?c=6.7.3.6" title="Delete" alt="Delete" class="' + delete_link_class + '" />';
+				}
+			}
+
+			var html = '';
+
+			if (is_hf) {
+
+				html = '<tr email_addr="' + data.acct_email +'" class="' + row_class + '">' + 
+					   '<td class="email_col">' + data.acct_email +'</td>' + 
+					   '<td class="role_col">' + status_text + '</td>' +
+					   (isAdmin ? '<td class="action_col padded">' + actions + '</td>' : '') +
+					   '</tr>';
+			} 
+			else {
+				
+				html = '<tr email_addr="' + data.acct_email +'" class="' + row_class + '">' + 
+					   '<td class="email_col">' + data.acct_email +'</td>';
+				if (pending_acceptance || pending_email_confirmation) {
+					html += '<td class="role_col">' + status_text + '</td>';
+				} 
+				else {
+					html += '<td class="role_col">';
+					html += data.is_free ? 'Free' : 'Business';
+					html += data.is_admin ? ' - Admin' : '';
+				}
+				html += '<td class="misc_col">';
+				if (data.is_free && isAdmin && !(pending_acceptance || pending_email_confirmation)) {
+					html += '<a href="#" acct_guid="' + data.acct_guid + '" class="upgrade_team_member_link">Upgrade</a><span class="details" data-loc="table" data-content="Upgrade this user to a Business seat for $/month and get branding, unlimited signatures requests, and unlimited templates."></span>';
+				}
+				html += '</td>';
+				html += '<td class="quota_sig_col">';
+				if (data.is_free) {
+					if (data.requests_left < 1) {
+						html += '<span class="quota-warning">0 left <span class="sig-per-month">(this month)</span></span>';
+					} 
+					else {
+						html += data.requests_left + ' left <span class="sig-per-month">(this month)</span>';
+					}
+				} 
+				else {
+					html += 'Unlimited';
+				}
+				html += '</td>';
+				html += '<td class="quota_template_col">';
+				if (data.is_free) {
+					if (data.templates_left < 1) {
+						html += '<span class="quota-warning">0 left</span>';
+					} 
+					else {
+						html += data.templates_left + ' left';
+					}
+				} 
+				else {
+					html += 'Unlimited';
+				}
+				html += '</td>';
+					   
+			   html += (isAdmin ? '<td class="action_col">' + actions + '</td>' : '');
+			   html += '</tr>';
+			}
+			
+			var first_member = team_list_container.find('tbody tr.team_member:first');
+			var last_invite = team_list_container.find('tbody tr.team_invite:last')
+			if (first_member.length > 0) {
+				// Insert a new row a the top of the list of existing members
+				$(html)
+					.hide()
+					.fadeIn('slow')
+					.css("display","table-row")
+					.insertBefore(first_member);
+				team_list_container.animate({ 'scrollTop': 0 });
+			}
+			else if (last_invite.length > 0) {
+				// Insert a new row at the bottom of the list of existing invites
+				$(html)
+					.hide()
+					.fadeIn('slow')
+					.css("display","table-row")
+					.insertAfter(last_invite);
+				team_list_container.animate({ 'scrollTop': 0 });
+			}
+			else {
+				// Insert a new row to a list that has no members yet
+				var tBody = team_list_container.find('tbody');
+				if (!tBody.length) {
+					tBody = team_list_container.find('table');
+				}
+				tBody.append($(html).hide().fadeIn('slow'));
+			}
+		}
+		$("#new_member_email_address").val('').blur();
+
+		// Update fax line select menus
+		if (!(pending_acceptance || pending_email_confirmation)) {
+			var new_option = $('<option></option>').attr('value', data.acct_guid).html(data.acct_email);
+			$('select.fax_line_select').each(function(i, el){
+				$(el).append(new_option).multiselect('refresh');
+			});
+		}
+		
+		bindDetails();
+
+		return fancybox_id;
+	}
+
+	// Add a team member
+	function addTeamMemberSubmit(e) {
+		
+		if ($(this).hasClass('loading') || !$("form.add_team_member").validate({errorContainer: "#error_container", errorLabelContainer: "#error_container"}).element( "#new_member_email_address" ) ) {
+			return false;
+		}
+		
+		$("#error_container").empty();
+		$(this).addClass('loading');
+		
+		$.ajax({
+			type: 'POST',
+			url: '/account/addTeamMember',
+	        dataType: 'json',
+			submitButton: this,
+			email: $("#new_member_email_address").val().toLowerCase(),
+			data: {
+				emails: [$("#new_member_email_address").val().toLowerCase()]
+			},
+			success: function(data) {
+				$(this.submitButton).removeClass('loading').removeAttr('disabled');
+				
+				if (data.success === undefined || data.success == 'failed' || data[0] === undefined  || data[0].success === undefined || data[0].success == 'failed' ) {
+					// Failure
+					var err_msg = data[0].error_msg || "An error occured!";
+					$('<label for="new_member_email_address"/>').html(err_msg).addClass('error').appendTo("#error_container");
+					$("#error_container").show();
+					return;
+				}
+
+				data = data[0]; // we get an array back (one entry for each email address submitted) and we only submitted one email address 
+
+				var fancybox_id = addNewTeamMemberRow(data);
+
+				$.fancybox(
+					$('#' + fancybox_id),
+					{
+						'scrolling'         : 'no',
+						'transitionIn'		: 'none',
+						'transitionOut'		: 'none',
+						'autoDimensions'    : true
+					}
+				);
+			},
+			error: function(data) {
+				$(this.submitButton).removeClass('loading').removeAttr('disabled');
+				$("<label/>").html('This user already belongs to a team.').addClass('error').appendTo("#error_container");
+				$("#error_container").show();
+			}
+		});
+		
+		e.preventDefault();
+	}
+	
+	$("#add_team_member_submit").click(addTeamMemberSubmit);
+	$("form.add_team_member").validate({errorContainer: "#error_container", errorLabelContainer: "#error_container"});
+	$("form.add_team_member").submit(function(e) {
+		$("#add_team_member_submit").click();
+		e.preventDefault();
+	});
+
+	// Send an upgrade request
+	function requestUpgrade(e) {
+		e.preventDefault();
+		hellofaxJS.openFancyBoxPopup("/account/requestUpgrade", {
+			height: 200,
+			width: 500
+		});
+	}
+
+	$('.request_upgrade_member_link').live("click", requestUpgrade);
+	$('.show_template_access_link').live('click', showTemplateAccess);
+	
+	$(document).click(function(event){
+		var el = $(event.target);
+		if ( (el.hasClass('arrow')) || el.parent().hasClass('menuLink')) {
+			return;
+		}
+		else {
+			$('table.team_list tr').removeClass('show');
+		}
+	});
+	
+	$('div.arrow').live('click', function() {
+		var t = $($(this).closest('tr').get(0));
+		if (!t.hasClass('show')) {
+			$('table.team_list tr').removeClass('show');
+		}
+		t.toggleClass("show");
+		if (window.IE7 && IE7) {
+			var click_no = t.attr('click_no');
+			if (typeof click_no == 'undefined' || click_no === false) {
+				click_no = 0;
+			}
+			
+			switch (click_no) {
+				case 0: 
+					$(t).find('a').css('width', '99px');
+					break;
+				case 1:
+					t.find('li').css({
+						'border': '1px solid #F7F8FC',
+						'width': '95px',
+						'overflow': 'hidden'
+					});
+					break;
+				case 2:
+					t.find('a').css({
+						'border': 'none',
+						'width': 'auto'
+					});
+					click_no = -1;
+					break;
+					
+			}
+			
+			click_no++;
+			t.attr('click_no', click_no);
+		}
+		
+	});
+	
+});
+</script>
+
+<div style="display:none;">
+	<div id="edit_team_name">
+		<form id="edit_team_name_form" name="edit_team_name_form">
+			<strong><span class="edit-only">Edit </span>Team Name:</strong></td>
+			<input type="text" placeholder="" value="Untitled Team" id="edit_team_name_text" name="edit_team_name_text"/></input>
+			<div class="actions">				
+				<a id="cancel_team_name_edits" href="#" onclick="void(0); return false;">Cancel</a>				<a id="save_team_name_edits" class="sub" href="#" onclick="void(0); return false;"><span class="edit-only">Save</span><span class="create-only">Create Team</span></a>	
+			</div>
+		</form>
+	</div>
+</div>
+
+<div style="display:none">
+	<div id="newAccountFancybox" class="addTeamMemberFancybox team-page permissions">
+		<h1>New member added</h1>
+				<p>An account has been created for <strong class="member_email"></strong> 
+				and they have been added to your team.</p>
+		<div class="btn-box">
+			<a class="blue-sub large" href="#" onclick="parent.$.fancybox.close();">Close</a>
+		</div>
+			</div>
+</div>
+
+<div style="display:none">
+	<div id="pendingEmailConfirmationFancybox" class="addTeamMemberFancybox team-page permissions">
+		<h1>You need to confirm your email address</h1>
+		<p>Before you can invite <strong class="member_email"></strong> to your team, you must confirm your email address.</p>
+		<div class="btn-box">
+			<a class="blue-sub large" href="/account/ResendAccountActivationEmail">Resend confirmation email</a>		</div>
+	</div>
+</div>
+
+
+<div style="display:none">
+	<div id="existingAccountFancybox" class="addTeamMemberFancybox team-page permissions">
+		<h1>Invitation sent</h2>
+		<p class="warning"><strong class="member_email"></strong> already has a HelloFax account. An invitation to join your team has been sent to them.</p> 
+				<div class="btn-box">
+			<a class="blue-sub large" href="#" onclick="parent.$.fancybox.close();">Close</a>
+		</div>
+	</div>
+</div>		</div>
+
+
+
+
+		<div id='footer'>
+			
+<div class="footer_container">
+
+	<ul class="footer-nav">
+		<li class='left'><a href="/info/aboutUs">About us</a></li>
+		<li class='left'><a href="/info/pricing">Pricing</a></li>
+		<li class='left'><a href="http://faq.hellofax.com/" target="_blank">FAQ</a></li>
+		<li class='left'><a href="/info/contact">Contact</a></li>
+				<li class='left'><a href="/info/security">Security</a></li>
+		<li class='left'><a href="/info/tos">Terms of Service</a></li>
+		<li class='left'><a href="/info/legal">Legal</a></li>
+		<li class='left'><a href="/info/privacyPolicy">Privacy</a></li>
+		<li class="right legal">&copy; <strong>HelloFax, Inc.</strong>, 2013. All rights reserved.</li>
+	</ul>
+	
+
+</div>
+
+<!-- notifications -->
+<script type="text/template" id="notification_template">
+	<div class="notification_wrapper notification-{{class_name}}" style="top: -100px;">
+		<div class="notification" id="{{box_id}}">
+			<a class="close {{class_name}}_close" href="#close">x</a>
+			<img alt="icon" src="{{icon}}" class="icon" />
+			<h1>{{header}}</h1>
+			<p>{{text}}</p>
+		</div>
+	</div>	
+</script>
+
+<script type="text/template" id="modal_notification_template">
+	<div class="notification_wrapper notification-fancybox">
+		{{content}}
+	</div>	
+</script>
+
+<script type="text/javascript">
+	$(function() {
+		//show notifications queued by backend
+		hellofaxJS.processQueuedNotifications();
+
+		//force password change if url flag is present
+		hellofaxJS.processForcePasswordChange();
+
+		//reize top bar
+		if ($("#container").width() > $("#topbar").width()) {
+			$("#topbar").width($("#container").width());
+		}
+	});
+</script>		</div>
+	</div>
+
+</div>
+
+			<script type="text/javascript">
+
+				function updateSignatureImage(newSigGuid) {
+					var invite = $('#invite');
+					if (!newSigGuid) {
+						// No signature anymore
+						invite
+							.find('.subitem.signature')
+								.removeAttr('guid')
+								.hide()
+							.end()
+							.removeClass('with-signature');
+					}
+					else {
+						// Update to new signature
+						invite
+							.addClass('with-signature')
+							.find('.subitem.signature')
+								.attr('guid', newSigGuid)
+								.find('img.signature')
+									.remove()
+								.end()
+							.show()
+							.append($('<img />')
+										.attr('src', '/attachment/view?sig_guid=' + newSigGuid)
+										.addClass('signature'));
+					}
+				}
+
+			
+				$(document).ready(function() {
+					
+					// Fancybox
+					$('.fancy').fancybox({
+						'autoDimensions': false,
+						'width'		    : 380,
+						'height'		: 480
+					});
+					
+
+					$('a.invite_friends_link').fancybox({
+						'autoDimensions': false,
+						'width'		    : 600,
+						'height'		: 280,
+						'type'			: 'iframe'
+					});
+
+					// Displays the list of new features if any (since last logged in)
+					if (eval($('#feature_count').val()) > 0) {
+						$.fancybox($('#new_feature_popup').html(), {
+							'autoDimensions': true,
+							'scrolling': 'no'
+						});
+					}
+
+					// Show more features
+					$('.seeMoreFeaturesLink').live('click', function(){
+						var n = eval($('#feature_group').val()) + 1;
+						var group = $('.group_' + n);
+						$('#feature_group').val(n);
+						if (group.length > 0) {
+							group.fadeIn('slow', function(){
+								if ($('.group_' + (n+1)).length == 0) {
+									$('.seeMoreFeaturesLink').fadeOut(function(){
+										$(this).html('See all')
+										.attr('href', 'http://blog.hellofax.com/category/new-features/')
+										.attr('target', '_blank')
+										.fadeIn();
+									});
+								}
+							});
+							$.fancybox.resize();
+						}
+					});
+
+					$('#editSignatureLink, #addSignatureLink').click(function(event){
+						hellofaxJS.openFancyBoxPopup('/onboarding/uploadSignature/is_onboarding/0/iframe/1', {
+							width: 760,
+							height: 375
+						});
+						event.preventDefault();
+					});
+					
+					$(document).click(function(event) {
+						var creditsNode = $('li#nav-credits');
+						if (creditsNode[0] !== event.target && !$.contains(creditsNode[0], event.target)) {
+							creditsNode.removeClass('show');
+						}
+					});
+					
+					$('li#nav-credits').click(function() {
+						$(this).toggleClass("show");
+					});
+
+					$("#greet_upgrade_button > a").mouseout(function() {
+						$("#upgrade_hover_span").html(upgrade_text_list[Math.floor(Math.random() * upgrade_text_list.length)]).hide();
+					}).mouseover(function() {
+						$("#upgrade_hover_span").show();
+					});
+
+					//responsive tips
+					if($("#content").width() > 1250) {
+						$(".responsive-tips").show();
+
+						$(window).bind('resize', function() {
+							$(".responsive-tips").fadeOut('500');
+						});
+					}
+
+					
+					
+					
+					$('#greet #upgrade_btn').click(function(e){
+						e.preventDefault();
+						hellofaxJS.trackEvent('greet_upgrade_clicked');
+						window.location.href = '/info/pricing';
+						
+					});
+
+				});
+				
+				var upgrade_text_list = [
+						"Is that a new tie?",
+						"I see effortless faxing in your future!",
+						"Smart people click 30% more buttons!",
+						"No more paperjams.  Ever. ",
+						"You're so smart and funny!",
+						"Because no one should know what 'PC LOAD LETTER' means."
+					];
+
+				function trackUrlParams() {
+					var params = {};
+					var ps = window.location.search.split(/\?|&/);
+
+					for (var i = 0; i < ps.length; i++) {
+						var p = ps[i].split(/=/);
+
+						if (params[p[0]]) {
+							params[p[0]].push(p[1]);
+						}
+						else {
+							params[p[0]] = [p[1]];
+						}
+					}
+
+					if (params['t']) {
+						for(i in params['t']) {
+							hellofaxJS.trackEvent(params['t'][i]);
+						}
+					}
+				}
+				trackUrlParams();
+				
+			</script>
+		
+		<!-- begin UserVoice code --> <script type="text/javascript"> var uvOptions = {}; (function() { var uv = document.createElement('script'); uv.type = 'text/javascript'; uv.async = true; uv.src = ('https:' == window.location.protocol ? 'https://' : 'http://') + 'widget.uservoice.com/JRQ2Hn7bbxieCsUPfqvk0g.js'; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(uv, s); })(); </script> <!-- end UserVoice code -->
+        				<script type="text/javascript">
+                /* <![CDATA[ */
+                var google_conversion_id = 983730068;
+                var google_conversion_label = "DcvSCJzbklIQlI-K1QM";
+                var google_custom_params = window.google_tag_params;
+                var google_remarketing_only = true;
+                /* ]]> */
+                </script>
+                <script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+                </script>
+                <noscript>
+                <div style="display:inline;">
+                <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/983730068/?value=0&amp;label=DcvSCJzbklIQlI-K1QM&amp;guid=ON&amp;script=0"/>
+                </div>
+                </noscript>
+    				<script type="text/javascript">
+						var user_data = {
+							is_logged_in: true,
+							has_remember_me: false,
+							email_address: "liu20011122@163.com",
+							has_paid_subscription: true,
+							can_multi_fax: false,
+							timezone_offset: -8,
+							site_code: 'F'
+						};
+						hellofaxJS.setUserData(user_data);
+				</script>
+</body>
+</html>

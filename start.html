@@ -1,0 +1,498 @@
+  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" class='layout'>
+<head>
+	<script type="text/javascript">window.optimizely_logged_in=true;</script>
+	<script type="text/javascript">window.optimizely_is_free=true;</script>
+	<script src="//cdn.optimizely.com/js/10955010.js"></script>	
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-Ua-Compatible" content="IE=edge" />
+	<meta name="keywords" content="悦成,刘立立,CRM,iPhone,Android,咨询,备注,客户来源,客户查询" />
+<meta name="description" content="本系统是由刘立立，为上海悦成移动开发的销售 CRM 系统，为销售人员提供各种销售信息的纪录和查询功能." />
+<meta name="og:title" content="悦成CRM" />
+<meta name="og:image" content="https://www.hellofax.com/css/images/common/bg_header_a.png" />
+<meta name="og:url" content="https://www.xxx.com" />
+<meta name="og:site_name" content="悦成CRM" />
+<meta name="og:description" content="纪录学员信息." />
+<meta name="language" content="zh-cn" />
+<meta name="robots" content="index, follow" />
+<meta name="og:type" content="website" />
+
+	<title>CRM 销售管理系统 | 悦成</title>
+
+<link rel="stylesheet" type="text/css" media="screen" href="css/editor/jquery.ui.base.css?v=6.7.3.6" />
+<link rel="stylesheet" type="text/css" media="screen" href="css/fancybox/jquery.fancybox-1.3.1.css?v=6.7.3.6" />
+<link rel="stylesheet" type="text/css" media="screen" href="css/main.css?v=6.7.3.6" />
+
+<script type="text/javascript" src="js/default.js?v=6.7.3.6"></script>
+<script type="text/javascript" src="js/jquery.overlay.js?v=6.7.3.6"></script>
+	
+	<link rel="stylesheet" type="text/css" media="screen"" href="css/hs/main.css?c=6.7.3.6" />
+
+	<script type="text/javascript" src="js/hs/main.js?c=6.7.3.6" ></script>
+	
+	<!--
+	<link rel="shortcut icon"" href="/favicon.ico?c=6.7.3.6" />    
+	<link rel="apple-touch-icon"" href="/images/icons/hf/apple-touch-icon-precomposed.png?c=6.7.3.6" />	
+	<link id="chrome-webstore-item" rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/bocmleclimfnadgmcdgecijlblfcmfnm">
+    -->
+
+	<script type='text/javascript'>
+$(document).ready(function(){
+
+	// This is to fix an issue on chrome related to background images not loading.
+	// We manually force all of them to load by resetting the background attribute to its own value.
+	// Not sure why this is even happening but this fixes it....
+
+	var ua = navigator.userAgent.toLowerCase();
+	var isChrome = /chrome/.test(ua);
+	var isSafari = !isChrome && /safari/.test(ua);
+	
+	if (isChrome || isSafari) {
+
+		var isWindows = /windows/.test(ua);
+		if (isChrome && isWindows) {
+			// For font fixes on chrome on windows
+			$('body').addClass('chrome-win-fix');
+		}
+		else if (isWindows) {
+			$('body').addClass('win');
+		}
+		
+		// Special case for the html tag
+		var html = $('html');
+		var b = html.css('background-image'); 
+		if (b && b != "none") {
+			html.attr('style', 'background-image: ' + b + ' !important;');
+		}
+		
+		var selectors = [
+			'li.nav_send a', 
+			'li.nav_request a', 
+			'li.nav_manage a', 
+			'li.nav_office a', 
+			'li.nav_create_template a', 
+			'li.nav_getting_started a', 
+			'#sitenav li .icon',
+			'.btn.r', 
+			'.btn.l', 
+			'.btn.c',
+			'.doc-actions .arrow',
+			'.team_list .arrow',
+			'#header h1 a'
+		];
+		$(selectors.join(", "))
+			.each(function(i, v) {
+				var el = $(v);
+				el.css('background', el.css('background'));
+			});
+	}
+	else if (/msie/.test(ua)) {
+		var version = (/msie 10/.test(ua) ? 10 : (/msie 9/.test(ua) ? 9 : (/msie 8/.test(ua) ? 8 : (/msie 7/.test(ua) ? 7 : undefined))));
+		if (version) {
+			$('body').addClass('ie' + version);
+		}
+	}
+	
+});
+</script>	
+</head>
+<body class="layout loggedin getting-started-page" id="hs">
+
+<!-- topBar begin -->
+<div id='topbar'>
+	<span class='link'>
+				上海悦成移动 CRM 
+			</span>
+	<!--		
+	<span class='link'>
+				<a href='/home/bridge/to/S' id='linkToHS' target='_blank'>HelloSign</a>
+			</span>
+	<span class='link'>
+		<span style='font-weight:normal;'>HelloSign for</span>
+		<a href='/home/bridge/to/G' target='_blank'>Gmail</a>
+		<span class='sep'>|</span>
+		<a href='/home/bridge/to/M' target='_blank'>iOS</a>
+		<span class='sep'>|</span>
+		<a href='/home/bridge/to/A' target='_blank'>Android</a>
+		</span>
+	-->	
+</div>
+<!-- topBar end -->
+
+
+<script type='text/javascript'>
+$(document).ready(function() {
+
+	var options = { 
+			autoDimensions: true,
+			onComplete: function(){ $('#fancybox-outer').addClass('with-border'); },
+			scrolling: 'no' 
+	};
+	
+
+	$('#linkToHS').click(function(event){
+		hellofaxJS.openFancyBoxPopup('/home/crossoverPopup?to=S', options);
+		event.preventDefault();
+	});
+
+});
+</script>
+
+
+<!-- display new features -->
+<div style='display:none;'>
+		<input id='feature_group' type='hidden' value='0' />
+	<input id='feature_count' type='hidden' value='0' />
+	<div id='new_feature_popup' style='margin:5px;'>
+		<div class='new_feature_popup_container'>
+			<h1 class='new_feature_popup_title'>Since you've been gone</h1>
+			<div class='new_feature_popup_header'>We added new features since your last visit!</div>
+						<div class='new_feature_popup_bottom'>
+								<a href='http://blog.hellofax.com/category/new-features/' target='_blank'>See all</a>
+				 
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="container">
+
+	<div id="left_bar">
+	
+		<div id="header">
+			<a tabindex="-1" class="logo" href="/">/</a>		</div>
+
+		<div id="sitenav">
+			<ul>
+								<li class="nav_send ">
+					<span class='icon'></span><a href="/fax">Send a fax</a>					<b class="r tr"></b
+					><b class="r br"></b>
+				</li>
+										<li class="nav_upgrade ">
+							<span class='icon'></span><a href="/home/upgrade">Receive faxes</a>							<b class="r tr"></b>
+							<b class="r br"></b>
+						</li>
+								<li class="nav_request ">
+					<span class='icon'></span><a href="/home/request">Sign documents</a>					<b class="r tr"></b>
+					<b class="r br"></b>
+				</li>
+								<div class="hr"></div>
+				<li class="nav_manage ">
+					<span class='icon'></span><a href="/home/manage">Documents</a>					<b class="r tr"></b>
+					<b class="r br"></b>
+				</li>
+				<li class="nav_office team-nav-item ">
+					<span class='icon'></span><a href="/home/team">Team</a>					<b class="r tr"></b>
+					<b class="r br"></b>
+				</li>
+				<div class="hr"></div>
+				<li class="nav_getting_started cur">
+					<span class='icon'></span><a href="/account/gettingStarted">Getting started</a>					<b class="r tr"></b>
+					<b class="r br"></b>
+				</li>
+				<div class="hr"></div>
+				<li class="nav_account ">
+					<span class='icon'></span><a href="/home/myAccount">Settings</a>					<b class="r tr"></b>
+					<b class="r br"></b>
+				</li>
+			</ul>
+			<div class="clearfix"></div>
+		</div>
+		
+		<div id="invite" class="sidebar-item sidebar-item-with-btn ">
+		
+			<div class="subitem signature" guid="">
+				<p>Your signature (<a href="#" id="editSignatureLink">edit</a>)</p>
+							</div>
+			
+			<div class="subitem signature-cta">
+				<a id="addSignatureLink" href="#">Add a signature</a>
+			</div>
+		
+			<div class="subitem">
+				<p>Invite a friend and you'll both get 5 free pages</p>
+				<a href="/home/inviteFriends" id="invite_friends_link" class="btn-replacement invite_friends_link">Invite a Friend</a>
+			</div>
+
+			<div class="subitem">
+				<p>Need to receive faxes?</p>
+<a class="btn-replacement" href="/info/pricing">Get a fax number today</a>			</div>
+			
+			<div class="subitem last">
+				<a style="font-size: 13px; margin: 0px 0px 10px 0px; display: block;" href="/account/gettingStarted">Earn bonus pages</a>				<a class="progress-bar-container" href="/account/gettingStarted">
+					<h4>Progress <span id="progress-text"></span></h4>
+					<div class="progress-bar" id="progress-bar"></div>
+				</a>
+			</div>
+		</div>
+
+		<!--subitems js-->
+				<script type="text/javascript">
+			// Load the FB SDK Asynchronously
+			(function(d){
+				var js, id = 'facebook-jssdk'; if (d.getElementById(id)) {return;}
+				js = d.createElement('script'); js.id = id; js.async = true;
+				js.src = "//connect.facebook.net/en_US/all.js";
+				d.getElementsByTagName('head')[0].appendChild(js);
+			}(document));
+
+			window.fbAsyncInit = function() {
+				FB.init({
+					appId      : '347878078557217', // App ID
+					channelUrl : '//hellofax.com/channel.html', // Channel File
+					status     : true, // check login status
+					cookie     : true, // enable cookies to allow the server to access the session
+					xfbml      : true  // parse XFBML
+				});
+
+				$(function() {
+					if (window.facebookInitCallback) {
+						window.facebookInitCallback();
+					}	
+				});
+			};
+		</script>
+						<script type="text/javascript">
+			
+			//update progress bar
+			var progressbar = $("#progress-bar");
+			var progresstext =  $("#progress-text");
+			var completeness = {
+				'percent': 17,
+				'total': 30,
+				'complete': 5			};
+			
+			if (completeness['percent'] >= 100) {
+				progressbar.addClass('complete');
+				completeness['percent'] = 100;
+			} else {
+				progressbar.removeClass('complete');
+			}
+
+			progressbar.animate({'width': completeness['percent'] + '%'});
+			progresstext.html(completeness['percent'] + '%');
+		</script>		
+	</div>
+	
+	
+	<div id="right_expand">
+		<div id="greet" class="large">
+			<ul class="greet-nav">
+				<li id="nav-credits" class="nav-credits">
+					<a href="#" onclick="void(0); return false;">liu20011122@163.com</a>					
+					<div id="credits-arrow" class="arrow">
+						<ul>
+							<span></span>
+							<li><span class="credits-header">Fax pages remaining</span></li>
+							<li class="credit-row credit-seperator"><strong>10</strong> fax pages</li>
+							<li><a href="/info/pricing">Upgrade</a></li>
+							<li class="nav-myaccount"><a href="/home/myAccount">Account settings</a></li>	
+							<li class="nav-logout"><a href="/account/logOut">Log out</a></li>
+						</ul>
+					</div>
+				</li>
+								<li id="upgrade_btn"><div class="btn-red">Upgrade</div></li>
+							
+
+			</ul>
+			
+		</div>
+		<div id="content" class="border-box">
+		  <div class="steps">
+	<h1>Getting Started - Earn Free Fax Pages</h1>
+		<div class="step completed">
+		<div class="step_container"><h2><span style="color:#616161;">1</span></h2></div>
+		<div class="step-info">
+			<h5>First things first, let's set a Password.</h5>
+			<p><b>reward:</b> 5 Free Fax Pages</p>		</div>
+		<a class="step-cta blue-sub" href="/onboarding/setPassword?is_onboarding=0&amp;redirect_url=account/gettingStarted">Set a Password Now</a>	</div>
+		<div class="step ">
+		<div class="step_container"><h2><span style="color:#616161;">2</span></h2></div>
+		<div class="step-info">
+			<h5>Create a Signature.</h5>
+			<p><b>reward:</b> 5 Free Fax Pages</p>		</div>
+		<a class="step-cta blue-sub" id="createSignatureLink" href="/onboarding/uploadSignature/is_onboarding/0">Create Now</a>	</div>
+	<div class="step " id="tweet-row">
+		<div class="step_container"><h2><span style="color:#616161;">3</span></h2></div>
+		<div class="step-info">
+			<h5>Tweet about us on Twitter.</h5>
+			<p><b>reward:</b> 5 Free Fax Pages</p>		</div>
+		<a href="#" 
+			id="h-twitter-share-link"
+			target="_blank"
+			class="twitter-share-button step-cta" 
+			data-url="www.hellofax.com" 
+			data-text="Join me on HelloFax. It's the easiest way to sign and send documents online - https://www.hellofax.com" 
+			data-related="HelloFax" 
+			data-lang="en" 
+			data-size="large" 
+			data-count="horizontal" >Tweet</a>
+	</div>
+	<div class="step " id="facebook-row" style="display: none;">
+		<div class="step_container"><h2><span style="color:#616161;">4</span></h2></div>
+		<div class="step-info">
+			<h5>Share  on Facebook.</h5>
+			<p><b>reward:</b> 5 Free Fax Pages</p>		</div>
+		<a class="step-cta blue-sub" href="#">Share Now</a>
+	</div>
+	<div class="step " id="contacts-row">
+		<div class="step_container"><h2><span style="color:#616161;">5</span></h2></div>
+		<div class="step-info">
+			<h5>Import your contacts from Gmail or Yahoo!</h5>
+			<p><b>reward:</b> 5 Free Fax Pages</p>		</div>
+		<a class="step-cta blue-sub" href="#">Import Now</a>
+	</div>
+	<div class="step ">
+		<div class="step_container"><h2><span style="color:#616161;">6</span></h2></div>
+		<div class="step-info">
+			<h5>Invite your friends to Join HelloFax.</h5>
+			<p><b>reward:</b> For every friend who joins HelloFax, we'll give you both 5 bonus pages!</p>		</div>
+		<a class="step-cta blue-sub invite_friends_link" href="/home/inviteFriends" >Invite Now</a>
+	</div>
+	<div class="extra step">
+		<div class="step-info">
+			<h5>View send document tutorial</h5>
+		</div>
+		<a class="step-cta blue-sub" href="/account/sendDemo">View tutorial</a>
+	</div>
+</div>
+
+
+<div id="fb-root"></div>
+<script type="text/javascript" charset="utf-8">
+
+$('#createSignatureLink').click(function(event){
+	hellofaxJS.openFancyBoxPopup('/onboarding/uploadSignature/is_onboarding/0/iframe/1', {
+		width: 760,
+		height: 375
+	});
+	event.preventDefault();
+});
+
+/*
+*	Twitter
+*/
+	$("#h-twitter-share-link").attr('href', '#').click(function() {
+		$(this).attr('href', 'https://twitter.com/intent/tweet?related=HelloFax&text=Join+me+on+HelloFax.+It%27s+the+easiest+way+to+sign+and+send+documents+online+-+https%3A%2F%2Fwww.hellofax.com&url=www.hellofax.com');
+	});
+
+	//asynchronously load twitter js
+	window.twttr = (function (d,s,id) {
+		var t, js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return; js=d.createElement(s); js.id=id;
+		js.src="//platform.twitter.com/widgets.js"; fjs.parentNode.insertBefore(js, fjs);
+		return window.twttr || (t = { _e: [], ready: function(f){ t._e.push(f); } });
+	}(document, "script", "twitter-wjs"));
+
+	// Define our custom event hanlders
+	function clickEventToAnalytics(intent_event) {
+		if (intent_event) {
+			var label = intent_event.region;
+			var _gaq = _gaq || [];
+			 _gaq.push(['_trackEvent','twitter_web_intents', intent_event.type, label]);
+		};
+	}
+
+	function tweetIntentToAnalytics(intent_event) {
+		if (intent_event) {
+			var label = "tweet";
+			var _gaq = _gaq || [];
+			 _gaq.push(['_trackEvent','twitter_web_intents', intent_event.type, label]);
+
+			$.ajax({
+				url: '/onboarding/asyncConfirmUserTweeted?nopre=1',
+				type: 'POST',
+				dataType: 'json',
+				success: function(data) {
+					if (data.success) {
+						$("#tweet-row").addClass('completed');
+					} else {
+						$("<div/>").addClass('error').html("An unknown error occurred.").appendTo("#tweet-row");
+					}
+				}
+			});
+		};
+	}
+
+	function followIntentToAnalytics(intent_event) {
+		if (intent_event) {
+			var label = intent_event.data.user_id + " (" + intent_event.data.screen_name + ")";
+			var _gaq = _gaq || [];
+			 _gaq.push(['_trackEvent','twitter_web_intents', intent_event.type, label]);
+		};
+	}
+ 
+	// Wait for the asynchronous resources to load
+	twttr.ready(function (twttr) {
+		// Now bind our custom intent events
+		twttr.events.bind('click',    clickEventToAnalytics);
+		twttr.events.bind('tweet',    tweetIntentToAnalytics);
+		twttr.events.bind('follow',   followIntentToAnalytics);
+	});  
+
+/*
+*	Facebook
+*/
+	function sharedOnFacebook(response) {
+		if (response && response.post_id) {
+			$.ajax({
+				url: '/onboarding/asyncConfirmUserFacebooked?nopre=1',
+				type: 'POST',
+				dataType: 'json',
+				success: function(data) {
+					if (data.success) {
+						$("#facebook-row").addClass('completed');
+					} else {
+						$("<div/>").addClass('error').html("An unknown error occurred.").appendTo("#tweet-row");
+					}
+				}
+			});
+		}
+		else {
+			//disabled displaying error for now because this is only likely to happen if the user purposely didn't share
+			//$("<div/>").addClass('error').html("An unknown error occurred.").appendTo("#facebook-row");
+		}
+	}
+		window.facebookInitCallback = function() {
+		$("#facebook-row").show().find('.step-cta').click(function() {
+			FB.ui({
+				method: 'feed',
+				name: 'HelloFax',
+				link: 'https://www.hellofax.com',
+				picture: 'https://www.hellofax.com/css/images/common/bg_header_a.png',
+				caption: 'Really simple online faxing.',
+				description: 'HelloFax is an online fax and electronic signature service. You can upload documents, add your signature and other text to them, and then fax them for free. We also support email-to-fax and allow you to receive faxes.'
+			}, sharedOnFacebook);
+		});
+	};
+			
+	$("#contacts-row .step-cta").click(function() {
+		$(this).parents('.step').addClass('completed');
+		hellofaxJS.openFancyBoxPopup('/account/contactImport', { width: 700, height: 410 });
+		return false;
+	});
+</script>		</div>
+
+
+<!-- footer begin -->
+<div id='footer'>			
+<div class="footer_container">
+
+	<ul class="footer-nav">
+		<li class='left'><a href="/info/aboutUs">About us</a></li>
+		<li class='left'><a href="/info/pricing">Pricing</a></li>
+		<li class='left'><a href="http://faq.hellofax.com/" target="_blank">FAQ</a></li>
+		<li class='left'><a href="/info/contact">Contact</a></li>
+				<li class='left'><a href="/info/security">Security</a></li>
+		<li class='left'><a href="/info/tos">Terms of Service</a></li>
+		<li class='left'><a href="/info/legal">Legal</a></li>
+		<li class='left'><a href="/info/privacyPolicy">Privacy</a></li>
+		<li class="right legal">&copy; <strong>HelloFax, Inc.</strong>, 2013. All rights reserved.</li>
+	</ul>
+
+</div>
+<!-- footer end -->
+
+</body>
+</html>

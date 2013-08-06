@@ -1,0 +1,550 @@
+  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" class='layout'>
+<head>
+	<script type="text/javascript">window.optimizely_logged_in=true;</script>
+	<script type="text/javascript">window.optimizely_is_free=true;</script>
+	<script src="//cdn.optimizely.com/js/10955010.js"></script>	
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-Ua-Compatible" content="IE=edge" />
+	<meta name="keywords" content="悦成,刘立立,CRM,iPhone,Android,咨询,备注,客户来源,客户查询" />
+<meta name="description" content="本系统是由刘立立，为上海悦成移动开发的销售 CRM 系统，为销售人员提供各种销售信息的纪录和查询功能." />
+
+	<title>CRM 销售管理系统 | 悦成</title>
+
+  <!-- Bootstrap styles -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/bootstrap-responsive.min.css" rel="stylesheet" />
+  <!-- page styles -->  	
+	<link rel="stylesheet" type="text/css" media="screen" href="css/editor/jquery.ui.base.css?v=6.7.3.6" />
+<link rel="stylesheet" type="text/css" media="screen" href="css/fancybox/jquery.fancybox-1.3.1.css?v=6.7.3.6" />
+<link rel="stylesheet" type="text/css" media="screen" href="css/main.css?v=6.7.3.6" />
+
+
+	<script type="text/javascript" src="js/default.js?v=6.7.3.6"></script>
+	<script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="js/libphonenumber.js?v=6.7.3.6"></script>
+<script type="text/javascript" src="js/jquery.address.js?v=6.7.3.6"></script>
+	
+	<link rel="stylesheet" type="text/css" media="screen"" href="css/hs/main.css?c=6.7.3.6" />
+
+	<script type="text/javascript" src="js/hs/main.js?c=6.7.3.6" ></script>
+
+		<script type='text/javascript'>
+$(document).ready(function(){
+
+	// This is to fix an issue on chrome related to background images not loading.
+	// We manually force all of them to load by resetting the background attribute to its own value.
+	// Not sure why this is even happening but this fixes it....
+
+	var ua = navigator.userAgent.toLowerCase();
+	var isChrome = /chrome/.test(ua);
+	var isSafari = !isChrome && /safari/.test(ua);
+	
+	if (isChrome || isSafari) {
+
+		var isWindows = /windows/.test(ua);
+		if (isChrome && isWindows) {
+			// For font fixes on chrome on windows
+			$('body').addClass('chrome-win-fix');
+		}
+		else if (isWindows) {
+			$('body').addClass('win');
+		}
+		
+		// Special case for the html tag
+		var html = $('html');
+		var b = html.css('background-image'); 
+		if (b && b != "none") {
+			html.attr('style', 'background-image: ' + b + ' !important;');
+		}
+		
+		var selectors = [
+			'li.nav_send a', 
+			'li.nav_request a', 
+			'li.nav_manage a', 
+			'li.nav_office a', 
+			'li.nav_create_template a', 
+			'li.nav_getting_started a', 
+			'#sitenav li .icon',
+			'.btn.r', 
+			'.btn.l', 
+			'.btn.c',
+			'.doc-actions .arrow',
+			'.team_list .arrow',
+			'#header h1 a'
+		];
+		$(selectors.join(", "))
+			.each(function(i, v) {
+				var el = $(v);
+				el.css('background', el.css('background'));
+			});
+	}
+	else if (/msie/.test(ua)) {
+		var version = (/msie 10/.test(ua) ? 10 : (/msie 9/.test(ua) ? 9 : (/msie 8/.test(ua) ? 8 : (/msie 7/.test(ua) ? 7 : undefined))));
+		if (version) {
+			$('body').addClass('ie' + version);
+		}
+	}
+	
+});
+</script>	
+</head>
+
+<body class="layout loggedin myaccount-page" id="hs">
+
+
+<!-- topBar begin -->
+<div id='topbar'>
+	<span class='link'>
+				上海悦成移动 CRM 
+			</span>
+	<!--		
+	<span class='link'>
+				<a href='/home/bridge/to/S' id='linkToHS' target='_blank'>HelloSign</a>
+			</span>
+	<span class='link'>
+		<span style='font-weight:normal;'>HelloSign for</span>
+		<a href='/home/bridge/to/G' target='_blank'>Gmail</a>
+		<span class='sep'>|</span>
+		<a href='/home/bridge/to/M' target='_blank'>iOS</a>
+		<span class='sep'>|</span>
+		<a href='/home/bridge/to/A' target='_blank'>Android</a>
+		</span>
+	-->	
+</div>
+<!-- topBar end -->
+
+<!-- main container  begin-->
+<div id="container">
+
+	<div id="left_bar">
+		<!-- Logo -->
+		<div id="header"><a tabindex="-1" class="logo" href="/">/</a></div>
+
+		<!-- sitenav begin -->	
+		<div id="sitenav">
+			<ul>
+				<li class="nav_send cur">
+					<span class='icon'></span><a href="/fax">客户信息</a>
+					<b class="r tr"></b><b class="r br"></b>
+				</li>
+				<li class="nav_upgrade ">
+					<span class='icon'></span><a href="/home/upgrade">客户查询</a>
+					<b class="r tr"></b><b class="r br"></b>
+				</li>
+				<li class="nav_request ">
+					<span class='icon'></span><a href="/home/request">客户报名</a>
+					<b class="r tr"></b><b class="r br"></b>
+				</li>
+				
+				
+				<li class="nav_manage ">
+					<span class='icon'></span><a href="/home/manage">客户来源</a>
+					<b class="r tr"></b><b class="r br"></b>
+				</li>
+				<div class="hr"></div>
+
+				<li class="nav_account ">
+					<span class='icon'></span><a href="/home/myAccount">帐户设置</a>
+					<b class="r tr"></b><b class="r br"></b>
+				</li>
+
+				<!--
+				<li class="nav_office team-nav-item ">
+					<span class='icon'></span><a href="/home/team">Team</a>
+					<b class="r tr"></b><b class="r br"></b>
+				</li>
+				<div class="hr"></div>
+				<li class="nav_getting_started ">
+					<span class='icon'></span><a href="/account/gettingStarted">Getting started</a>					<b class="r tr"></b><b class="r br"></b>
+				</li>
+				<div class="hr"></div>
+				<li class="nav_account ">
+					<span class='icon'></span><a href="/home/myAccount">Settings</a>
+					<b class="r tr"></b><b class="r br"></b>
+				</li>
+			    -->
+			</ul>
+			<div class="clearfix"></div>
+		</div>
+		<!-- sitenav  end -->
+
+		<!-- 左下提示栏 begin -->
+		<div id="invite" class="sidebar-item sidebar-item-with-btn ">
+		<!--  -->
+			<div class="subitem signature-cta">
+				<a id="addSignatureLink" href="#">预约提醒</a>
+			</div>
+		
+			<div class="subitem">
+				<p>今天剩余预约量</p>
+				<a href="#" id="invite_friends_link" class="btn-replacement invite_friends_link">3</a>
+			</div>
+
+			<div class="subitem">
+				<p>今天新建客户量</p>
+<a class="btn-replacement" href="/info/pricing">5</a></div>
+			
+			<div class="subitem last">
+				<a style="font-size: 13px; margin: 0px 0px 10px 0px; display: block;" href="/account/gettingStarted">预约完成百分比</a>				
+				<a class="progress-bar-container" href="#">
+					<h4>80%<span id="progress-text"></span></h4>
+					<div class="progress-bar" id="progress-bar"></div>
+				</a>
+			</div>
+		</div>
+		<!-- 左下提示栏 end -->	
+	</div>
+
+	<!-- ======================左右分割线===================== -->	
+
+	<div id="right_expand">
+	    <!-- 用户登录信息提醒 -->
+		<div id="greet" class="large">
+			<ul class="greet-nav">
+				<li id="nav-credits" class="nav-credits">
+					<a href="#" onclick="void(0); return false;">黄学敏</a>
+					<!-- 点击弹出退出菜单 -->
+					<div id="credits-arrow" class="arrow">
+						<ul>
+							<span></span>
+							<li><span class="credits-header">Fax pages remaining</span></li>
+							<li class="credit-row credit-seperator"><strong>10</strong> fax pages</li>
+							<li><a href="/info/pricing">Upgrade</a></li>
+							<li class="nav-myaccount"><a href="/home/myAccount">Account settings</a></li>			
+							<li class="nav-logout"><a href="/account/logOut">Log out</a></li>
+						</ul>
+					</div>
+				</li>
+				<!--
+				<li id="upgrade_btn"><div class="btn-red">Upgrade</div></li>  -->
+			</ul>
+		</div>
+	
+	
+		<!-- ============主要内容 begin============ -->
+		<div id="content" class="border-box">
+		  	<div id="acc">
+				<h1>客户信息</h1>
+					<form id="change-pass" class="clearfix" autocomplete="off" method="post" action="#" enctype="multipart/form-data">
+						<div class="tab-nav">
+						<ul class="tabs">
+							<li class="tab active" id="settings_tab">增加</li>
+							<li class="tab " id="integrations_tab">列表</li>
+				       </ul>
+				<div class="clearfix"></div>
+			</div>
+			
+						<div id="account_content" class="tab-content">
+				<!-- 增加客户 begin-->
+				<div class="form-table tab-content " id="settings_tab_content">
+			
+					<div class="personal-row">
+						<h2 style="height: 40px;">必填信息</h2>
+						<div class="name">
+							<label for="edit_account_first_name">姓名</label>
+							<input placeholder="必须输入姓名.." maxlength="255" name="edit_account[first_name]"
+							  autocomplete="off" id="edit_account_first_name" type="text" />
+						</div>
+		
+						<div class="name">
+							<label for="edit_account_last_name">电话</label>
+							<input placeholder="必须输入电话..." maxlength="14" name="edit_account[last_name]" 
+							autocomplete="off" id="edit_account_last_name" type="text" />
+						</div>
+						
+						<div>
+						    <label for="edit_account_last_name">性别</label>
+							<select name="edit_account[date_format]" id="edit_account_date_format">
+								<option value="1" selected="selected">先生</option>
+								<option value="2" >女士</option>
+							</select>
+						</div>
+					</div>
+					
+					<div class="personal-row">
+						<h2 style="height: 40px;">基本信息</h2>
+						<div class="name">
+						<label for="edit_account_first_name">学历</label>
+						<select class="span2">
+                			<option>本科</option>
+                			<option>大专</option>
+                			<option>中专</option>
+                			<option>高中</option>
+                			<option>研究生</option>
+              			</select>
+						</div>
+		
+						<div class="name">
+							<label for="edit_account_last_name">专业</label>
+							<input placeholder="建议输入专业..." maxlength="14" name="edit_account[last_name]" 
+							autocomplete="off" id="edit_account_last_name" type="text" />
+						</div>
+					</div>	
+					
+					<div class="personal-row">
+						<h2 style="height: 40px;">咨询意向</h2>	
+						<div>
+						    <label for="edit_account_last_name">职业状态</label>
+							<select name="edit_account[date_format]" id="edit_account_date_format">
+								<option value="1" selected="selected">在职</option>
+								<option value="2" >离职</option>
+								<option value="3" >学生</option>
+							</select>
+						</div>
+						
+						<div>
+						    <label for="edit_account_last_name">意向班型</label>
+							<select name="edit_account[date_format]" id="edit_account_date_format">
+							，，，，，，，
+								<option value="1" selected="selected">Android脱产</option>
+								<option value="2" >Android周末</option>
+								<option value="3" >Android视频</option>
+								<option value="4" >Android多贝</option>
+								<option value="5" >iOS脱产</option>
+								<option value="6" >iOS周末</option>
+								<option value="7" >iOS视频</option>
+								<option value="8" >iOS多贝</option>
+							</select>
+						</div>
+						
+						<div>
+						    <label for="edit_account_last_name">意向城市</label>
+							<select name="edit_account[date_format]" id="edit_account_date_format">
+								<option value="1" selected="selected">上海</option>
+								<option value="2" >北京</option>
+								<option value="3" >广州</option>
+							</select>
+						</div>
+					</div>
+	
+					<div class="personal-row">
+						<h2 style="height: 40px;">联系信息</h2>
+						<div class="name">
+							<label for="edit_account_last_name">QQ </label>
+							<input placeholder="建议输入 QQ ..." maxlength="14" name="edit_account[last_name]" 
+							autocomplete="off" id="edit_account_last_name" type="text" />
+						</div>
+						
+						<div class="name">
+							<label for="edit_account_last_name">邮箱 </label>
+							<input placeholder="建议输入 Email ..." maxlength="14" name="edit_account[last_name]" 
+							autocomplete="off" id="edit_account_last_name" type="text" />
+						</div>
+		
+					</div>
+					
+					<div class="timezone-row">
+						<h2 style="height: 16px;">客户来源</h2>
+						<div>
+							<select name="edit_account[date_format]" id="edit_account_date_format">
+								<option value="0" selected="selected">未知</option>
+								<option value="1">留言板</option>
+								<option value="2">在线</option>
+								<option value="3">对啊</option>
+								<option value="4">简历呼出</option>
+								<option value="5">外呼</option>
+								<option value="6">老学员介绍</option>
+								<option value="7">回访</option>
+							</select>
+						</div>
+					</div>
+	
+					<div class="contacts-row">
+						<h2 style="height: 16px;">咨询信息</h2>
+						<div class="plural">黄学敏</div>
+						
+						<div>
+						    <label for="edit_account_last_name">咨询状态</label>
+							<select name="edit_account[date_format]" id="edit_account_date_format">
+								<option value="1" selected="selected">电话无人接听</option>
+								<option value="2" >挖需求</option>
+								<option value="3" >行业前景</option>
+								<option value="4" >确定学习</option>
+								<option value="5" >课程优势</option>
+								<option value="6" >优惠截杀</option>
+								<option value="7" >已交订金</option>
+								<option value="8" >已报名</option>
+								<option value="9" >贷款学员</option>
+							</select>
+						</div>
+					</div>
+					</div>
+				<!-- 增加客户 end-->
+		
+			</div>
+
+						<div class="submit-row">
+				<input name="submit" value="保存客户信息" class="sub" id="save-preferences" type="submit" />
+			</div>
+						
+						<input name="edit_account[current_tab]" id="edit_account_current_tab" type="hidden" />
+						<input name="edit_account[_csrf_token]" value="df305103b410075f0e0f3634528f9a0d" id="edit_account__csrf_token" type="hidden" />
+					</form>
+			</div>
+	
+			<div class="clearfix"></div>
+
+			<!--
+			<div id="infoBubble">
+				<span class="arrow"></span><span class="content"></span>
+			</div>
+			-->
+			
+			<script type="text/javascript">
+	$(document).ready(function(){
+
+		//tab hooks
+		$('.tab').click(function(e){
+
+			e.preventDefault();
+			
+			var tab = $(this);
+			var currentId = tab.attr('id');
+			if (tab.hasClass('active')) {
+				return;
+			}
+
+			$('.tab').removeClass('active');
+			tab.addClass('active');
+			$('.tab-content').addClass('hidden');
+			$('#' + currentId + '_content').removeClass('hidden');
+			//make h2 heights match their container heights
+			$('#' + currentId + '_content > div > h2').each(function() {
+				$(this).height($(this).parent().height() - (parseInt($(this).css('paddingTop'), 10) + parseInt($(this).css('paddingBottom'), 10)));
+			});
+			$('#edit_account_current_tab').val(currentId.substring(0, currentId.indexOf('_tab')));
+			window.location.href = "#" + currentId.substring(0, currentId.indexOf('_tab'));
+		});
+
+		$('input:disabled,input[readonly],textarea[readonly],textarea:disabled,select:disabled').parent().click(function(e){
+			alertLocked(e);			
+		});
+		
+		$('a.member-upgrade').click(function(e){
+			e.preventDefault();
+			hellofaxJS.openFancyBoxPopup("/account/requestUpgrade", {
+				height: 170,
+				width: 500
+			});
+		});
+
+		$('.btn_external_service_change').click(function(event) {
+			event.stopPropagation();
+			event.preventDefault();
+
+			var text = $.trim($(this).text());
+			
+			if ($(this).attr('rel') == 'G' && text != 'Deactivate') {
+				if ($.browser.msie  && parseInt($.browser.version, 10) < 8) {
+					$.fancybox('<div class="browser_warning"><strong>This option requires a more up to date browser</strong><p>Download the latest <a href="http://windows.microsoft.com/en-US/internet-explorer/downloads/ie" target="_blank">Microsoft Internet Explorer</a> or <a href="http://www.google.com/chrome/" target="_blank">Google Chrome</a></p></div>', {padding: 20});
+					
+					return;
+				}
+			}
+			
+			$.ajax({
+				dataType: 'json',
+				type: 'POST',
+				url: '/account/updateExternalService',
+				data: {
+					service_type: $(this).attr('rel'),
+					is_deactivate: text == 'Deactivate' ? '1' : '0'
+					},
+				success: function(data, textSTatus, jqXHR) {
+					if (data.auth_url) {
+						window.location = data.auth_url.replace(/&amp;/g, '&');	// FIXME: Needed because it gets returned HTML-encoded
+					}
+					else {
+						window.location = "/home/myAccount/current_tab/integrations";
+					}
+				}
+			});
+			$(this).replaceWith('<img class="spinner" src="//s3.amazonaws.com/cdn.hellofax.com/images/ajax-loader.gif?c=6.7.3.6" width="16" height="16" />');
+		});
+		
+		$('#import_contacts').click(function(event){
+			hellofaxJS.openFancyBoxPopup("/account/contactImport", { width: 700, height: 410 });
+			event.preventDefault();
+		});
+
+		$('#clear_contacts').click(function(event){
+			event.preventDefault();
+			if (confirm("Are you sure you want to remove all your contacts from our system?")) {
+				var spinner = $("<span><img class='spinner' src='//s3.amazonaws.com/cdn.hellofax.com/images/ajax-loader.gif?c=6.7.3.6' width='16' height='16' /><span>Deleting...</span></span>");
+				var link = $(this);
+				link.fadeOut(function(){ spinner.insertAfter(link); });
+				$.ajax({
+					url: '/account/deleteContacts',
+					type: 'GET',
+					data: { c: Math.random() },
+					success: function(){
+						window.location.reload(true);
+					},
+					error: function(){
+						link.show();
+						spinner.remove();
+						alert("Something prevented us from clearing your contacts! Try again or contact us at support@hellofax.com");
+					}
+				});
+			}
+		});
+		
+		$('form#change-pass').validate({
+			rules: { 'edit_account[new_password]': { minlength: 6, required: false } }
+		});
+
+		$('form#edit_team_membership_form').submit(function() {
+			add_team_member_go_btn.click();
+			return false;
+		});
+
+			
+
+
+		//faxline stuff
+		$(".to_be_formatted").each(function(i, elem) {
+			$(this)	.html( hellofaxJS.formatInternationalFaxNumber( $(this).html() ) )
+					.removeClass('to_be_formatted');
+		});
+
+
+		//make h2 heights match their container heights
+		$(".form-table > div > h2").each(function() {
+			$(this).height($(this).parent().height() - (parseInt($(this).css('paddingTop'), 10) + parseInt($(this).css('paddingBottom'), 10)));
+		});
+	});
+</script>
+		</div>
+		
+		<!-- ============主要内容 end============ -->
+		
+		<!-- footer -->
+		<div id='footer'>	
+			<div class="footer_container">
+				<ul class="footer-nav">
+					<li class='left'><a href="/info/aboutUs">About us</a></li>
+					<li class='left'><a href="/info/pricing">Pricing</a></li>
+					<li class='left'><a href="http://faq.hellofax.com/" target="_blank">FAQ</a></li>
+					<li class='left'><a href="/info/contact">Contact</a></li>
+					<li class='left'><a href="/info/security">Security</a></li>
+					<li class='left'><a href="/info/tos">Terms of Service</a></li>
+					<li class='left'><a href="/info/legal">Legal</a></li>
+					<li class='left'><a href="/info/privacyPolicy">Privacy</a></li>
+					<li class="right legal">&copy; <strong>HelloFax, Inc.</strong>, 2013. All rights reserved.</li>
+				</ul>
+			</div>
+		</div>
+
+	</div>
+
+
+
+
+</div>
+<!-- main container  end-->
+
+</body>
+
+</html>

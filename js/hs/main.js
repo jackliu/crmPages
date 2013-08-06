@@ -1,0 +1,1 @@
+$(document).ready(function(){$("input[defaultvalue], textarea[defaultvalue]").live("focus",function(){var a=$(this);var b=$.trim(a.val());if(b==a.attr("defaultvalue")){a.val("")}}).live("blur",function(){var a=$(this);var b=$.trim(a.val());if(!b){a.val(a.attr("defaultvalue"))}}).each(function(b,a){var c=$(a);c.val(c.attr("defaultvalue"))})});

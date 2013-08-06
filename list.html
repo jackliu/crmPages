@@ -1,0 +1,296 @@
+  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" class='layout'>
+<head>
+	<script type="text/javascript">window.optimizely_logged_in=true;</script>
+	<script type="text/javascript">window.optimizely_is_free=true;</script>
+	<script src="//cdn.optimizely.com/js/10955010.js"></script>	
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-Ua-Compatible" content="IE=edge" />
+	<meta name="keywords" content="悦成,刘立立,CRM,iPhone,Android,咨询,备注,客户来源,客户查询" />
+<meta name="description" content="本系统是由刘立立，为上海悦成移动开发的销售 CRM 系统，为销售人员提供各种销售信息的纪录和查询功能." />
+
+	<title>CRM 销售管理系统 | 悦成</title>
+
+  <!-- Bootstrap styles -->
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/bootstrap-responsive.min.css" rel="stylesheet" />
+  <!-- page styles -->  	
+	<link rel="stylesheet" type="text/css" media="screen" href="css/editor/jquery.ui.base.css?v=6.7.3.6" />
+<link rel="stylesheet" type="text/css" media="screen" href="css/fancybox/jquery.fancybox-1.3.1.css?v=6.7.3.6" />
+<link rel="stylesheet" type="text/css" media="screen" href="css/main.css?v=6.7.3.6" />
+
+
+	<script type="text/javascript" src="js/default.js?v=6.7.3.6"></script>
+	<script type="text/javascript" src="js/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="js/libphonenumber.js?v=6.7.3.6"></script>
+<script type="text/javascript" src="js/jquery.address.js?v=6.7.3.6"></script>
+	
+	<link rel="stylesheet" type="text/css" media="screen"" href="css/hs/main.css?c=6.7.3.6" />
+
+	<script type="text/javascript" src="js/hs/main.js?c=6.7.3.6" ></script>
+
+		<script type='text/javascript'>
+$(document).ready(function(){
+
+	// This is to fix an issue on chrome related to background images not loading.
+	// We manually force all of them to load by resetting the background attribute to its own value.
+	// Not sure why this is even happening but this fixes it....
+
+	var ua = navigator.userAgent.toLowerCase();
+	var isChrome = /chrome/.test(ua);
+	var isSafari = !isChrome && /safari/.test(ua);
+	
+	if (isChrome || isSafari) {
+
+		var isWindows = /windows/.test(ua);
+		if (isChrome && isWindows) {
+			// For font fixes on chrome on windows
+			$('body').addClass('chrome-win-fix');
+		}
+		else if (isWindows) {
+			$('body').addClass('win');
+		}
+		
+		// Special case for the html tag
+		var html = $('html');
+		var b = html.css('background-image'); 
+		if (b && b != "none") {
+			html.attr('style', 'background-image: ' + b + ' !important;');
+		}
+		
+		var selectors = [
+			'li.nav_send a', 
+			'li.nav_request a', 
+			'li.nav_manage a', 
+			'li.nav_office a', 
+			'li.nav_create_template a', 
+			'li.nav_getting_started a', 
+			'#sitenav li .icon',
+			'.btn.r', 
+			'.btn.l', 
+			'.btn.c',
+			'.doc-actions .arrow',
+			'.team_list .arrow',
+			'#header h1 a'
+		];
+		$(selectors.join(", "))
+			.each(function(i, v) {
+				var el = $(v);
+				el.css('background', el.css('background'));
+			});
+	}
+	else if (/msie/.test(ua)) {
+		var version = (/msie 10/.test(ua) ? 10 : (/msie 9/.test(ua) ? 9 : (/msie 8/.test(ua) ? 8 : (/msie 7/.test(ua) ? 7 : undefined))));
+		if (version) {
+			$('body').addClass('ie' + version);
+		}
+	}
+	
+});
+</script>	
+</head>
+
+<body class="layout loggedin myaccount-page" id="hs">
+
+
+<!-- topBar begin -->
+<div id='topbar'>
+	<span class='link'>
+				上海悦成移动 CRM 
+			</span>
+</div>
+<!-- topBar end -->
+
+<!-- main container  begin-->
+<div id="container">
+
+	<div id="left_bar">
+		<!-- Logo -->
+		<div id="header"><a tabindex="-1" class="logo" href="/">/</a></div>
+
+		<!-- sitenav begin -->	
+		<div id="sitenav">
+			<ul>
+				<li class="nav_send cur">
+					<span class='icon'></span><a href="/fax">客户信息</a>
+					<b class="r tr"></b><b class="r br"></b>
+				</li>
+				<li class="nav_upgrade ">
+					<span class='icon'></span><a href="/home/upgrade">客户查询</a>
+					<b class="r tr"></b><b class="r br"></b>
+				</li>
+				<li class="nav_request ">
+					<span class='icon'></span><a href="/home/request">客户报名</a>
+					<b class="r tr"></b><b class="r br"></b>
+				</li>
+				
+				
+				<li class="nav_manage ">
+					<span class='icon'></span><a href="/home/manage">客户来源</a>
+					<b class="r tr"></b><b class="r br"></b>
+				</li>
+				<div class="hr"></div>
+
+				<li class="nav_account ">
+					<span class='icon'></span><a href="/home/myAccount">帐户设置</a>
+					<b class="r tr"></b><b class="r br"></b>
+				</li>
+
+			</ul>
+			<div class="clearfix"></div>
+		</div>
+		<!-- sitenav  end -->
+
+		<!-- 左下提示栏 begin -->
+		<div id="invite" class="sidebar-item sidebar-item-with-btn ">
+		<!--  -->
+			<div class="subitem signature-cta">
+				<a id="addSignatureLink" href="#">预约提醒</a>
+			</div>
+		
+			<div class="subitem">
+				<p>今天剩余预约量</p>
+				<a href="#" id="invite_friends_link" class="btn-replacement invite_friends_link">3</a>
+			</div>
+
+			<div class="subitem">
+				<p>今天新建客户量</p>
+<a class="btn-replacement" href="/info/pricing">5</a></div>
+			
+			<div class="subitem last">
+				<a style="font-size: 13px; margin: 0px 0px 10px 0px; display: block;" href="/account/gettingStarted">预约完成百分比</a>				
+				<a class="progress-bar-container" href="#">
+					<h4>80%<span id="progress-text"></span></h4>
+					<div class="progress-bar" id="progress-bar"></div>
+				</a>
+			</div>
+		</div>
+		<!-- 左下提示栏 end -->	
+	</div>
+
+	<!-- ======================左右分割线===================== -->	
+
+	<div id="right_expand">
+	    <!-- 用户登录信息提醒 -->
+		<div id="greet" class="large">
+			<ul class="greet-nav">
+				<li id="nav-credits" class="nav-credits">
+					<a href="#" onclick="void(0); return false;">黄学敏</a>
+					<!-- 点击弹出退出菜单 -->
+					<div id="credits-arrow" class="arrow">
+						<ul>
+							<span></span>
+							<li><span class="credits-header">Fax pages remaining</span></li>
+							<li class="credit-row credit-seperator"><strong>10</strong> fax pages</li>
+							<li><a href="/info/pricing">Upgrade</a></li>
+							<li class="nav-myaccount"><a href="/home/myAccount">Account settings</a></li>			
+							<li class="nav-logout"><a href="/account/logOut">Log out</a></li>
+						</ul>
+					</div>
+				</li>
+				<!--
+				<li id="upgrade_btn"><div class="btn-red">Upgrade</div></li>  -->
+			</ul>
+		</div>
+	
+	
+		<!-- ============主要内容 begin============ -->
+		<div id="content" class="border-box">
+		  	<div id="acc">
+				<h1>客户信息</h1>
+					<form id="change-pass" class="clearfix" autocomplete="off" method="post" action="#" enctype="multipart/form-data">
+						<div class="tab-nav">
+						<ul class="tabs">
+							<li class="tab " id="settings_tab">增加</li>
+							<li class="tab active" id="integrations_tab">列表</li>
+				       </ul>
+				<div class="clearfix"></div>
+			</div>
+			
+				<!--  预约 begin-->		
+				<div class="row">
+					<div class="span12">
+					<center>	
+					<form class="well form-search">
+    						<input type="text" class="input-medium search-query" placeholder="按照姓名或电话搜索" />
+    						<button type="submit" class="btn-large btn-info">搜索</button>
+    					</form>
+    				</center>
+    				<br />		
+						<table class="table table-striped table-bordered table-condensed">
+	        				<thead>
+          <tr>
+            <th>姓名</th>
+            <th>电话</th>
+            <th>意向</th>
+            <th>咨询状态</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        					<tbody>
+          <tr>
+            <td>刘某某</td>
+            <td>16673893722</td>
+            <td>Android 周末班</td>
+            <td>电话无人接听</td>
+            <td>修改</td>
+          </tr>
+          <tr>
+            <td>周某某</td>
+            <td>13873893722</td>
+            <td>Android 脱产班</td>
+            <td>7月1日联系</td>
+            <td>修改</td>
+          </tr>
+          <tr>
+            <td>刘某某</td>
+            <td>16673893722</td>
+            <td>Android 周末班</td>
+            <td>电话无人接听</td>
+            <td>修改</td>
+          </tr>
+        </tbody>
+      					</table>	
+      				</div>
+      			</div>	
+				<!--  预约 end-->
+
+			</div>
+				</form>
+			</div>
+	
+			<div class="clearfix"></div>
+			
+		</div>
+		
+		<!-- ============主要内容 end============ -->
+		
+		<!-- footer -->
+		<div id='footer'>	
+			<div class="footer_container">
+				<ul class="footer-nav">
+					<li class='left'><a href="/info/aboutUs">About us</a></li>
+					<li class='left'><a href="/info/pricing">Pricing</a></li>
+					<li class='left'><a href="http://faq.hellofax.com/" target="_blank">FAQ</a></li>
+					<li class='left'><a href="/info/contact">Contact</a></li>
+					<li class='left'><a href="/info/security">Security</a></li>
+					<li class='left'><a href="/info/tos">Terms of Service</a></li>
+					<li class='left'><a href="/info/legal">Legal</a></li>
+					<li class='left'><a href="/info/privacyPolicy">Privacy</a></li>
+					<li class="right legal">&copy; <strong>HelloFax, Inc.</strong>, 2013. All rights reserved.</li>
+				</ul>
+			</div>
+		</div>
+
+	</div>
+
+
+
+
+</div>
+<!-- main container  end-->
+
+</body>
+
+</html>

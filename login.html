@@ -1,0 +1,247 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<script type="text/javascript">window.optimizely_is_free=true;</script>
+	<script src="//cdn.optimizely.com/js/10955010.js"></script>	
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-Ua-Compatible" content="IE=edge" />
+	<meta name="keywords" content="悦成,刘立立,CRM,iPhone,Android,咨询,备注,客户来源,客户查询" />
+<meta name="description" content="本系统是由刘立立，为上海悦成移动开发的销售 CRM 系统，为销售人员提供各种销售信息的纪录和查询功能." />
+
+	<title>CRM 销售管理系统 | 悦成</title>
+	
+	<link rel="stylesheet" type="text/css" media="screen" href="css/editor/jquery.ui.base.css?v=6.7.3.6" />
+<link rel="stylesheet" type="text/css" media="screen" href="css/fancybox/jquery.fancybox-1.3.1.css?v=6.7.3.6" />
+<link rel="stylesheet" type="text/css" media="screen" href="css/main.css?v=6.7.3.6" />
+<link rel="stylesheet" type="text/css" media="screen" href="css/main-loggedOut.css?v=6.7.3.6" />
+	
+	<script type="text/javascript" src="js/default.js?v=6.7.3.6"></script>
+	
+	<!--
+	<link rel="shortcut icon"" href="/favicon.ico?c=6.7.3.6" />    
+	<link rel="apple-touch-icon"" href="/images/icons/hf/apple-touch-icon-precomposed.png?c=6.7.3.6" />	
+    -->
+					<script type="text/javascript">
+					var _gaq = _gaq || [];
+					_gaq.push(['_setAccount', 'UA-15982871-1']);
+					_gaq.push(['_trackPageview', window.location.href.replace(/\?.*$/, '')]);
+					
+					(function() {
+					  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+					  ga.src = ('https:' == window.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+					  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+					})();
+				</script>					<script type="text/javascript">
+				  var _kmq = _kmq || [];
+				  function _kms(u){
+				    setTimeout(function(){
+				      var s = document.createElement('script'); var f = document.getElementsByTagName('script')[0]; s.type = 'text/javascript'; s.async = true;
+				      s.src = u; f.parentNode.insertBefore(s, f);
+				    }, 1);
+				  }
+				  _kms('//i.kissmetrics.com/i.js');_kms('//doug1izaerwt3.cloudfront.net/a1f3cc3528083091a47e9df4be1d9442241f1996.1.js');
+				  
+				</script>	<script type='text/javascript'>
+$(document).ready(function(){
+
+	// This is to fix an issue on chrome related to background images not loading.
+	// We manually force all of them to load by resetting the background attribute to its own value.
+	// Not sure why this is even happening but this fixes it....
+
+	var ua = navigator.userAgent.toLowerCase();
+	var isChrome = /chrome/.test(ua);
+	var isSafari = !isChrome && /safari/.test(ua);
+	
+	if (isChrome || isSafari) {
+
+		var isWindows = /windows/.test(ua);
+		if (isChrome && isWindows) {
+			// For font fixes on chrome on windows
+			$('body').addClass('chrome-win-fix');
+		}
+		else if (isWindows) {
+			$('body').addClass('win');
+		}
+		
+		// Special case for the html tag
+		var html = $('html');
+		var b = html.css('background-image'); 
+		if (b && b != "none") {
+			html.attr('style', 'background-image: ' + b + ' !important;');
+		}
+		
+		var selectors = [
+			'li.nav_send a', 
+			'li.nav_request a', 
+			'li.nav_manage a', 
+			'li.nav_office a', 
+			'li.nav_create_template a', 
+			'li.nav_getting_started a', 
+			'#sitenav li .icon',
+			'.btn.r', 
+			'.btn.l', 
+			'.btn.c',
+			'.doc-actions .arrow',
+			'.team_list .arrow',
+			'#header h1 a'
+		];
+		$(selectors.join(", "))
+			.each(function(i, v) {
+				var el = $(v);
+				el.css('background', el.css('background'));
+			});
+	}
+	else if (/msie/.test(ua)) {
+		var version = (/msie 10/.test(ua) ? 10 : (/msie 9/.test(ua) ? 9 : (/msie 8/.test(ua) ? 8 : (/msie 7/.test(ua) ? 7 : undefined))));
+		if (version) {
+			$('body').addClass('ie' + version);
+		}
+	}
+	
+});
+</script></head>
+
+
+
+<body class="modal login-page" id=''>
+	<div id="container">
+		
+		<div id="header">
+				<ul id="nav">
+					<li class="nav-home"><a href="#">&larr; <u>用户手册</u></a></li>
+					<!--
+					<li class="nav-signup"><a class="pink-sub" href="/account/signUp">登录</a></li>
+					-->
+				</ul>
+		</div>
+	
+
+		<div id="main-content">
+		  
+	
+	<h1>悦成Logo</h1>
+	<h4 class="subhead">登录</h4>
+		<script type="text/JavaScript">    
+		$("<img>").attr("src", "images/account/login-hover.png?c=6.7.3.6");</script>
+		<script type='text/javascript' src='js/wl.js'></script>
+
+	
+	<form id="frmLogin" class="login_form" method="post" action="https://www.hellofax.com/account/logIn">		
+		<input type="hidden" name="login[pending_tsm_group_guid]" id="login_pending_tsm_group_guid" />
+		<input type="hidden" name="login[redirect_url]" value="https://www.hellofax.com/home/team" id="login_redirect_url" />
+		<input type="hidden" name="login[error_redirect_url]" id="login_error_redirect_url" />		
+		<div class="form_row">
+						<label for="login_email_address">用户名称</label>			
+						<input class="email required" type="text" name="login[email_address]" id="login_email_address" />						
+						<small></small><small></small>
+		</div>
+
+		<div class="form_row">
+				<label for="login_password">用户密码</label>
+				<input class="password required" type="password" name="login[password]" id="login_password" />		<small></small>
+			</div>
+		<!--		
+		<div class="form_row last">
+							<input value="1" type="checkbox" name="login[should_remember_me]" class="checkbox" checked="checked" id="login_should_remember_me" /><label class="checkbox-label" for="login_should_remember_me">Remember me on this computer</label>
+					</div>
+		-->
+		
+		<div class='button_area'>
+			<input type='hidden' name='target_promo_quota' value='' />
+			<input type="hidden" name="should_show_password" value="1" />
+			<input type="submit" id="login" value="开始工作 :)" class="blue-sub smaller" />
+		</div>
+
+		
+		<div class="clearfix"></div>
+	</form>
+
+
+<script type="text/javascript">
+	$(document).ready(function() {
+
+		
+		function doGoogleOpenID(event) {
+			$.fancybox.close();
+			var googleOpenIDUrl = "https://www.hellofax.com/account/openid/connect/google?on_login_redirect_url=aHR0cHM6Ly93d3cuaGVsbG9mYXguY29tL2hvbWUvdGVhbQ==";
+						window.open(googleOpenIDUrl, '_blank', 'width=640, height=480');
+					}
+
+		function doWindowsLiveOpenID(event) {
+			$.fancybox.close();
+			var appId = "00000000440E0CCB";
+			var loggingEnabled = false;
+			hellofaxJS.windowsLiveLogin(appId, loggingEnabled, function(resp) {
+				if (resp && resp.id) {
+					var userId = encodeURIComponent(resp.id);
+					var email = encodeURIComponent(resp.emails.account);
+					var redirUrl = "https%3A%2F%2Fwww.hellofax.com%2Fhome%2Fteam";
+					var skydriveSetup = 0;
+					var WLLoginUrl = "/account/windowsLiveLogIn?ref=" + userId + "&email=" + email + "&sd_setup=" + skydriveSetup;
+					document.location = WLLoginUrl + (redirUrl ? "&on_login_redirect_url=" + redirUrl : "");
+					
+				}
+			});
+		}
+
+		$('.google_area_small, #suggestedAuthButton.G').live('click', doGoogleOpenID);
+		$(".wl_area_small, #suggestedAuthButton.W").live('click', doWindowsLiveOpenID);
+		
+		
+						
+							$('#signup_email_address').val('enter email address');
+				$('#signup_password').val('password');
+				$('#signup_email_address, #signup_password').one('focus', function(){
+					$(this).val('').css('color','black');
+				});
+			
+
+							$('#login_email_address').focus();
+						
+			
+			});
+</script>	
+
+<script type="text/javascript">
+	$(window).load(function() {
+		//setup fancy box for forgot password links
+		$('#forgotPasswordLink, .forgotPasswordLink').fancybox({
+			'autoDimensions': false,
+			'width'		    : 380,
+			'height'		: 240,
+			'type'			: 'iframe'
+		});
+	});
+</script>		</div>
+	</div>
+	
+
+<!-- footer begin -->
+	<div id="footer">	
+<div class="footer_container">
+
+	<div class="inner border-box">
+		<div id="footer_links" class="clearfix">
+			<!--
+			<span><a href="/info/contact">Contact</a></span>
+			<span><a href="/info/aboutUs">About Us</a></span>
+			<span><a href="/info/pricing">Pricing</a></span>
+			<span><a href="/info/benefits">Benefits</a></span>
+			<span><a target="_blank" href="http://faq.hellofax.com">FAQ</a></span>
+			<span><a target="_blank" href="http://blog.hellofax.com">Blog</a></span>
+						<span><a target="_blank" href="https://www.hellosign.com/">HelloSign</a></span>
+			<span><a href="/info/security">Security</a></span>
+						<span><a href="/info/legal">Legal</a></span>
+			<span><a href="/info/privacyPolicy">Privacy</a></span>
+			<span><a href="/info/tos">Terms of Service</a></span>
+		-->
+		</div>
+		<br/>
+		<p class="legal">&copy; <strong>上海悦成移动CRM, Inc.</strong>, 2013. All rights reserved.</p>
+	</div>
+	
+</div>
+<!-- footer end -->
+	</body>
+</html>
